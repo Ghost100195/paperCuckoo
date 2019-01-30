@@ -36,7 +36,12 @@
   \maketitle
 
   \begin{abstract}
-In dieser Arbeit wurde der metaheuristischen Algorithmus Cuckoo Search (CS) implementiert, um damit zwei Optimierungsproblem zu lösen. Die grundlegende Idee des Algorithmus ist abgeleitet von dem Brutparasitismus einiger Kuckuck-Arten. Das Bewegungsmuster des Kuckucks wird in dem Algorithmus durch den Levy Flight erzeugt. Dieser erzeugt ein Bewegungsmuster wie es bei einigen Vögeln und Insekten beobachtet wurde.  Es wurden die beiden NP-harten Probleme, des Travelling-Salesmans (TSP) und des Sequenc-Ordering (SOP) betrachtet und mit dem Algorihtmus gelöst. Da die Arbeit im Kontext eines Projektes erscheint, in dem mehrere metaheuristische Algorithmen verglichen wurden, sind zum Schluss nur die Benchmarks und Ergebnisse des hier angewandten Algorithmus gelistet.
+    In dieser Arbeit wurde der metaheuristischen Algorithmus Cuckoo Search (CS) implementiert, um damit zwei Optimierungsproblem zu lösen. 
+    Die grundlegende Idee des Algorithmus ist abgeleitet von dem Brutparasitismus einiger Kuckuck-Arten. Das Bewegungsmuster des Kuckucks 
+    wird in dem Algorithmus durch den Levy Flight erzeugt. Dieser erzeugt ein Bewegungsmuster wie es bei einigen Vögeln und Insekten 
+    beobachtet wurde.  Es wurden die beiden NP-harten Probleme, des Travelling-Salesmans (TSP) und des Sequenc-Ordering (SOP) betrachtet 
+    und mit dem Algorihtmus gelöst. Da die Arbeit im Kontext eines Projektes erscheint, in dem mehrere metaheuristische Algorithmen verglichen 
+    wurden, sind zum Schluss nur die Benchmarks und Ergebnisse des hier angewandten Algorithmus gelistet.
   \end{abstract}
 
   \begin{IEEEkeywords}
@@ -44,9 +49,15 @@ In dieser Arbeit wurde der metaheuristischen Algorithmus Cuckoo Search (CS) impl
   \end{IEEEkeywords}
 
   \section{Einleitung}
-    Viele Optimierungsprobleme sind NP-hart und damit existiert kein Algorithmus, der dieses Problem effizient lösen kann. Für solche Probleme können Metaheuristiken zur näherungsweisen Lösung eingesetzt werden. Metaheuristiken definieren dabei eine abstrakte Folge von Schritten, die auf beliebige Problemstellungen angewandt werden können. Die einzelnen Schritte müssen allerdings wieder problemspezifisch implementiert werden. Erfolg und Laufzeit hängen von der Definition und Implementierung dieser Schritte ab. 
+    Viele Optimierungsprobleme sind NP-hart und damit existiert kein Algorithmus, der dieses Problem effizient lösen kann. Für solche 
+    Probleme können Metaheuristiken zur näherungsweisen Lösung eingesetzt werden. Metaheuristiken definieren dabei eine abstrakte Folge 
+    von Schritten, die auf beliebige Problemstellungen angewandt werden können. Die einzelnen Schritte müssen allerdings wieder 
+    problemspezifisch implementiert werden. Erfolg und Laufzeit hängen von der Definition und Implementierung dieser Schritte ab. 
 
-Ein Bereich der Metaheuristiken sind die naturanalogenen Algorithmen, deren Vorgehen sich aus der Natur ableitet. In diesem Zusammenhang wird der Cuckoo Search (CS) Algorithmus betrachtet und einmal auf das Traveling Salesman Problem (TSP) und Sequential Ordering Problem (SOP) angewandt. Der CS ist ein noch recht junger Algorithmus, der 2009 von Xin-She Yang und Suash Deb entwickelt wurde \cite{b1}. Die Experimente wurde für das euklidische, symmetrische TSP durchgeführt und die genutzten Daten stammen aus der TSPLIB Library \cite{b12}.
+    Ein Bereich der Metaheuristiken sind die naturanalogenen Algorithmen, deren Vorgehen sich aus der Natur ableitet. In diesem Zusammenhang 
+    wird der Cuckoo Search (CS) Algorithmus betrachtet und einmal auf das Traveling Salesman Problem (TSP) und Sequential Ordering Problem (SOP) 
+    angewandt. Der CS ist ein noch recht junger Algorithmus, der 2009 von Xin-She Yang und Suash Deb entwickelt wurde \cite{b1}. 
+    Die Experimente wurden für das euklidische, symmetrische TSP durchgeführt und die genutzten Daten stammen aus der TSPLIB Library \cite{b12}.
 
   \section{Traveling Salesman Problem und Sequential Ordering Problem}
     \subsection{Traveling Salesman Problem}
