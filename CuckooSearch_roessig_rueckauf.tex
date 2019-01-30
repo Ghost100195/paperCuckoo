@@ -231,53 +231,7 @@ Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassu
       verbessert, da weniger Iterationen benötigt werden und er eine besser Resistenz gegenüber lokalen Minima besitzt \cite{b9}.
 
   \section{Anpassung des Cuckoo Search für die betrachteten Probleme}
-    Der größte Unterschied für den Algorithmus von TSP zu SOP ist, dass der Algorithmus Lösungen 
-    produzieren kann die nicht mehr valide sind. Beim TSP musste nur darauf geachtet werden, 
-    dass jede zufällig erzeugte Lösung zu beginn valide war, danach konnten durch die Operationen 
-    DoubleBrideMove und TwoOptSwap keine invaliden Ergebnisse produziert werden.
-    Mit SOP reicht es nicht mehr nur die Initialisierung valide zu gestalten, da auch die 
-    beiden Operationen zu invaliden Ergebnissen führen können. 
-    Es gibt mehrere Varianten mit invaliden Ergebnisse um zu gehen, die drei Bekanntesten sind 
-    dabei das Handicap, Reparieren und Operatoren Anpassung. 
-
-    \subsection{Handicap}
-      Beim Handicap werden invalide 
-      Ergebnisse beibehalten in der Population. Ihre Fitness hingegen wird mittels eines Handicaps 
-      verschlechtert. Das Abschwächen ist also sogesehen die ''Bestrafung'' dafür das es sich bei der 
-      Lösung um ein invalides Ergebnis handelt. Der Vorteil dieser Lösung ist, dass auch eine solche 
-      Lösung noch gute Bestandteile beinhaltet die vom Schwarm übernommen werden können. Hätte sie
-      keine guten Bestandteile würde sich durch das Handicap so schlecht werden, dass sie aus der
-      Population ausscheidet. Nachteil an diesem Ansatz ist, dass das Balancing des Handicaps 
-      enorm schwer ist. Ist das Handicap viel zu stark, werden invalide Lösung nicht wirklich 
-      betrachten und könnten auch direkt gelöscht werden. Ist wiederrum das Handicap zu schwach, 
-      kann es passieren, dass die beste Lösung des Algorithmus ein invalides Ergebnis ist, was 
-      wiederrum auch nicht gut ist. Erst recht ist das Handicap im Falle von SOP/TSP schwer 
-      einzubringen, da die Fitness hierbei die Länge der Pfade ist. Die Problemstellung äußert 
-      sich also direkt in der Fitness, da bedeutet, dass eine Fitness von 100 in dem einen Fall
-      gut und im anderen Fall eine Fitness von 10.000 gut ist. Das Handicap müsste in diesem Fall 
-      variable gestaltet werden. Problem hierbei ist, dass das optimale Ergebnis zu beginn nicht 
-      bekannt ist, wobei ein relatives Handicap schwer umzusetzen ist. Aus dem Balancing Problem 
-      und dem Problem das Handicap auf SOP/TSP anzuwenden, haben wir uns gegen diese Methode 
-      entschieden.
-
-    \subsection{Operatoren}
-      Mit der Anpassung der Operatoren ist gemeint, dass die Operatoren nur valide Ergebnisse erzeugen 
-      können. Im Falle des Cuckoo´s Algorithmus ist dies auch extrem schwer, da die Operationen 
-      an sich sehr einfach sind. Es werden keine weiteren Metriken verwendet, mit denen man eine 
-      solche Anpassung umsetzen könnte. Um den Algorithmus und damit die Operatoren nicht zu weit
-      weg von der Idee eines einfachen Optimierungsalgorithmus zu bringen, haben wir uns auch 
-      gegen diesen Ansatz entschieden.
-
-    \subsection{Reparierung}
-      Im Repair-Schritt wird ein ungültiger Weg wieder in einem gültigen Weg transformiert, wobei 
-      versucht wird den gültigen Wissensgehalt, innerhalb der Lösung, nicht zu verändern. Dies bedeutet, 
-      dass gerade soviel geändert wird, dass die Reihenfolge wieder valide ist. Veränderungen darüber hinaus, 
-      könnte dazu führen, dass kleiner Veränderungen durch die Operaten (Swap, CrossBridge) sonst verloren gehen würden.
-      Des weiteren ist der Repair-Schritt ein unnatürlicher Eingriff in die natürliche Lösungsfindung des Cuckoo's Algorithmus, 
-      weswegen dieser möglichst klein Ausfallen sollte.
-      Der Rapair-Schritt schien uns für den Cukoo's Algorthimus am passensten, da dieser die Komplexität des Algorithmus nicht erhöht, aber 
-      gleichzeitig keine **Balancing** Probleme mit sich bringt. Die genaue Implementierung des Schritte wird im folgenden Abschnitt \ref{Implementierung Repair}
-      beschrieben.
+   
 
     \subsection{Cuckoo Search für das Traveling Salesman Problem}
       Bekanntlich befindet sich das TSP in einem kombinatorischen Raum und der CS wurde entworfen, 
@@ -331,6 +285,55 @@ Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassu
 
     \label{Implementierung Repair}
     \subsection{Cuckoo Search für das Sequential Ordering Problem}
+      Der größte Unterschied für den Algorithmus von TSP zu SOP ist, dass der Algorithmus Lösungen 
+      produzieren kann die nicht mehr korrekt (engl. valid) sind. Beim TSP musste nur darauf geachtet werden, 
+      dass jede zufällig erzeugte Lösung zu beginn korrekt war, danach konnten durch die Operationen 
+      DoubleBrideMove und TwoOptSwap keine invaliden Ergebnisse produziert werden.
+      Mit SOP reicht es nicht mehr nur die Initialisierung valide zu gestalten, da auch die 
+      beiden Operationen zu invaliden Ergebnissen führen können. 
+      Es gibt mehrere Varianten mit invaliden Ergebnisse um zu gehen, die drei Bekanntesten sind 
+      dabei das Handicap, Reparieren und Operatoren Anpassung. 
+
+    \subsection{Handicap}
+      Beim Handicap werden invalide 
+      Ergebnisse beibehalten in der Population. Ihre Fitness hingegen wird mittels eines Handicaps 
+      verschlechtert. Das Abschwächen ist also sogesehen die ''Bestrafung'' dafür das es sich bei der 
+      Lösung um ein invalides Ergebnis handelt. Der Vorteil dieser Lösung ist, dass auch eine solche 
+      Lösung noch gute Bestandteile beinhaltet die vom Schwarm übernommen werden können. Hätte sie
+      keine guten Bestandteile würde sich durch das Handicap so schlecht werden, dass sie aus der
+      Population ausscheidet. Nachteil an diesem Ansatz ist, dass das Balancing des Handicaps 
+      enorm schwer ist. Ist das Handicap viel zu stark, werden invalide Lösung nicht wirklich 
+      betrachten und könnten auch direkt gelöscht werden. Ist wiederrum das Handicap zu schwach, 
+      kann es passieren, dass die beste Lösung des Algorithmus ein invalides Ergebnis ist, was 
+      wiederrum auch nicht gut ist. Erst recht ist das Handicap im Falle von SOP/TSP schwer 
+      einzubringen, da die Fitness hierbei die Länge der Pfade ist. Die Problemstellung äußert 
+      sich also direkt in der Fitness, da bedeutet, dass eine Fitness von 100 in dem einen Fall
+      gut und im anderen Fall eine Fitness von 10.000 gut ist. Das Handicap müsste in diesem Fall 
+      variable gestaltet werden. Problem hierbei ist, dass das optimale Ergebnis zu beginn nicht 
+      bekannt ist, wobei ein relatives Handicap schwer umzusetzen ist. Aus dem Balancing Problem 
+      und dem Problem das Handicap auf SOP/TSP anzuwenden, haben wir uns gegen diese Methode 
+      entschieden.
+
+    \subsection{Operatoren}
+      Mit der Anpassung der Operatoren ist gemeint, dass die Operatoren nur valide Ergebnisse erzeugen 
+      können. Im Falle des Cuckoo´s Algorithmus ist dies auch extrem schwer, da die Operationen 
+      an sich sehr einfach sind. Es werden keine weiteren Metriken verwendet, mit denen man eine 
+      solche Anpassung umsetzen könnte. Um den Algorithmus und damit die Operatoren nicht zu weit
+      weg von der Idee eines einfachen Optimierungsalgorithmus zu bringen, haben wir uns auch 
+      gegen diesen Ansatz entschieden.
+
+    \subsection{Reparierung}
+      Im Repair-Schritt wird ein ungültiger Weg wieder in einem gültigen Weg transformiert, wobei 
+      versucht wird den gültigen Wissensgehalt, innerhalb der Lösung, nicht zu verändern. Dies bedeutet, 
+      dass gerade soviel geändert wird, dass die Reihenfolge wieder valide ist. Veränderungen darüber hinaus, 
+      könnte dazu führen, dass kleiner Veränderungen durch die Operaten (Swap, CrossBridge) sonst verloren gehen würden.
+      Des weiteren ist der Repair-Schritt ein unnatürlicher Eingriff in die natürliche Lösungsfindung des Cuckoo's Algorithmus, 
+      weswegen dieser möglichst klein Ausfallen sollte.
+      Der Rapair-Schritt schien uns für den Cukoo's Algorthimus am passensten, da dieser die Komplexität des Algorithmus nicht erhöht, aber 
+      gleichzeitig keine **Balancing** Probleme mit sich bringt. Die genaue Implementierung des Schritte wird im folgenden Abschnitt \ref{Implementierung Repair}
+      beschrieben.
+
+
       Im Cuckoo's Algorithmus, muss an drei Orten festgestellt werden, dass nur valide Ergebnisse erstellt werden. Die einzigen Punkte im 
       Algorithmus wo unvalide Ergebnisse auftretten, ist bei der Initialisierung und den beiden Operatoren. 
       Da die **Initialisierung** TSP Reihenfolgen erstellt, werden diese im Nachhinein so transformiert, dass sie dem SOP entsprechen. 

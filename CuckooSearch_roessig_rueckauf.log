@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.1.19)  30 JAN 2019 10:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.1.19)  30 JAN 2019 10:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -498,45 +498,67 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 36.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+)
+Underfull \hbox (badness 1939) in paragraph at lines 47--48
+\OT1/ptm/m/n/10 kann. F[]ur sol-che Pro-ble-me k[]onnen Me-ta-heu-ris-ti-ken zur
+ []
+
+
+Underfull \vbox (badness 4621) has occurred while \output is active []
+
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 2111) in paragraph at lines 187--192
+Underfull \hbox (badness 2111) in paragraph at lines 163--168
 []\OT1/ptm/m/n/10 Um ei-ne neue Ge-ne-ra-ti-on von L[]osungen von ei-nem
  []
 
-<LevyFlight.png, id=17, 360.6273pt x 348.8232pt>
+[2]
+<LevyFlight.png, id=20, 360.6273pt x 348.8232pt>
 File: LevyFlight.png Graphic file (type png)
 <use LevyFlight.png>
-Package pdftex.def Info: LevyFlight.png  used on input line 195.
+Package pdftex.def Info: LevyFlight.png  used on input line 171.
 (pdftex.def)             Requested size: 201.60077pt x 194.99901pt.
-[2]
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 289.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [3 </home/ubuntu/Ausarbeitung_Latex/LevyFlight.png>]
+ [3 </home/ubuntu/Ausarbeitung_Latex/LevyFlight.png>]
 <2-opt-move.png, id=29, 199.2243pt x 109.48904pt>
 File: 2-opt-move.png Graphic file (type png)
 <use 2-opt-move.png>
-Package pdftex.def Info: 2-opt-move.png  used on input line 331.
+Package pdftex.def Info: 2-opt-move.png  used on input line 261.
 (pdftex.def)             Requested size: 201.60077pt x 110.79689pt.
 <double-Bridge.png, id=30, 199.10385pt x 99.85304pt>
 File: double-Bridge.png Graphic file (type png)
 <use double-Bridge.png>
-Package pdftex.def Info: double-Bridge.png  used on input line 338.
+Package pdftex.def Info: double-Bridge.png  used on input line 268.
 (pdftex.def)             Requested size: 201.60077pt x 101.10979pt.
 
-Underfull \hbox (badness 3895) in paragraph at lines 344--350
+Underfull \hbox (badness 3895) in paragraph at lines 274--280
 []\OT1/ptm/m/n/10 Um den Such-raum zu durch-su-chen, ha-ben wir die
  []
 
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 319.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+) [4 </home/ubuntu/Ausarbeitung_Latex/2-opt-move.png> </home/ubuntu/Ausarbeitung_Latex/double-Bridge.png>]
 
-LaTeX Warning: Reference `Alg.1.Repair' on page 4 undefined on input line 366.
+LaTeX Warning: Reference `Alg.1.Repair' on page 5 undefined on input line 345.
 
-[4 </home/ubuntu/Ausarbeitung_Latex/2-opt-move.png> </home/ubuntu/Ausarbeitung_Latex/double-Bridge.png>]
 
-LaTeX Warning: Reference `Alg.1.Repair' on page 5 undefined on input line 390.
+LaTeX Warning: Reference `Alg.1.Repair' on page 5 undefined on input line 369.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 422--423
+[]\OT1/ptm/m/n/8 https://www.iwr.uni-heidelberg.de/groups/comopt/software/TSPLIB95/
+ []
 
 
 ** Conference Paper **
@@ -559,14 +581,14 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  5547 strings out of 492615
- 80280 string characters out of 6131390
- 170927 words of memory out of 5000000
- 9350 multiletter control sequences out of 15000+600000
- 46449 words of font info for 101 fonts, out of 8000000 for 9000
+ 80279 string characters out of 6131390
+ 168931 words of memory out of 5000000
+ 9351 multiletter control sequences out of 15000+600000
+ 45371 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,35p,363b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,11n,35p,1051b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/ubuntu/Ausarbeitung_Latex/CuckooSearch_roessig_rueckauf.pdf (5 pages, 310132 bytes).
+Output written on /home/ubuntu/Ausarbeitung_Latex/CuckooSearch_roessig_rueckauf.pdf (5 pages, 310988 bytes).
 PDF statistics:
  82 PDF objects out of 1000 (max. 8388607)
  56 compressed objects within 1 object stream
