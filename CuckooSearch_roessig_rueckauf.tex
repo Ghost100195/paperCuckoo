@@ -104,13 +104,26 @@ Ein Bereich der Metaheuristiken sind die naturanalogenen Algorithmen, deren Vorg
 
   \section{Grundlagen des Cuckoo Search}
     \subsection{Brutverhalten des Kuckucks}
-Die Grundidee des Algorithmus wurde von dem Brutverhalten des namensgebenden Kuckucks abgeleitet. Das Brutverhalten des Kuckucks ist der sogenannter Brutparasitismus. Bei diesem Verhalten wird das eigene Gelege nicht selbst bebrütet, sondern es wird ein Ersatzwirt gesucht, der das Ei ausbrütet und sich auch um die Fütterung und Aufzucht des fremden Nachwuchses kümmert.
+      Die Grundidee des Algorithmus wurde von dem Brutverhalten des namensgebenden Kuckucks abgeleitet. Das Brutverhalten des Kuckucks 
+      ist der sogenannter Brutparasitismus. Bei diesem Verhalten wird das eigene Gelege nicht selbst bebrütet, sondern es wird ein 
+      Ersatzwirt gesucht, der das Ei ausbrütet und sich auch um die Fütterung und Aufzucht des fremden Nachwuchses kümmert.
 
-Die Brutschmarotzer müssen sich durch dieses Verhalten nicht um die zeitintensive Aufzucht der Nachkommen kümmern. Sie verringern somit den Aufwand für die Brutpflege und haben mehr Zeit Nahrung für sich selbst zu finden. Dadurch sind sie in der Lage mehr Eier zu legen und können so potenziell mehr Nachkommen erzeugen. 
+      Die Brutschmarotzer müssen sich durch dieses Verhalten nicht um die zeitintensive Aufzucht der Nachkommen kümmern. 
+      Sie verringern somit den Aufwand für die Brutpflege und haben mehr Zeit Nahrung für sich selbst zu finden. Dadurch sind 
+      sie in der Lage mehr Eier zu legen und können so potenziell mehr Nachkommen erzeugen. 
 
-Unter den Wirtstieren gibt es aber auch solche, die die fremden Eier entdecken. Dann gibt es zwei verschiedene Strategien. Werden die fremden Eier entdeckt, so werden sie entweder aus dem Nest geschmissen oder das ganze Gelege wird verlassen und ein neues angelegt. 
+      Unter den Wirtstieren gibt es aber auch solche, die die fremden Eier entdecken. Dann gibt es zwei verschiedene Strategien. 
+      Werden die fremden Eier entdeckt, so werden sie entweder aus dem Nest geschmissen oder das ganze Gelege wird verlassen und 
+      ein neues angelegt. 
 
-Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassungen entwickelt, um das Risiko der Entdeckung zu minimieren. Bei einigen Arten erfolgt die Eireifung simultan zu der des Wirtstieres. Die Eier des Kuckucks besitzen meist eine kürzere Brutzeit, sodass der Kuckuck als erster schlüpft und er dann die anderen Eier aus dem Nest schmeißt. Die meisten Kuckucksküken wachsen in den ersten Tagen schneller als die Küken der Wirtseltern und haben dadurch einen entscheidenden Fütterungs- und Wachstumsvorteil.  Zudem erfolgt die Eiablage in beschleunigter Form, d.h. das Ei wird im Eileiter aufbewahrt und kann dann im Gelegenheitsfall schnell gelegt werden. Es wurden in der Natur Eiablagezeiten von nur 10 Sekunden gemessen. Manche Kuckucksarten haben die Größe und Farbe der Eier denen der Wirtseier angepasst, sodass fast kein Unterschied zwischen den Eiern mehr zu erkennen ist. Diese Tiere bevorzugen dann in der Regel eine Wirtsvogelart.         
+      Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassungen entwickelt, um das Risiko der Entdeckung 
+      zu minimieren. Bei einigen Arten erfolgt die Eireifung simultan zu der des Wirtstieres. Die Eier des Kuckucks besitzen meist 
+      eine kürzere Brutzeit, sodass der Kuckuck als erster schlüpft und er dann die anderen Eier aus dem Nest schmeißt. Die meisten 
+      Kuckucksküken wachsen in den ersten Tagen schneller als die Küken der Wirtseltern und haben dadurch einen entscheidenden 
+      Fütterungs- und Wachstumsvorteil.  Zudem erfolgt die Eiablage in beschleunigter Form, d.h. das Ei wird im Eileiter aufbewahrt 
+      und kann dann im Gelegenheitsfall schnell gelegt werden. Es wurden in der Natur Eiablagezeiten von nur 10 Sekunden gemessen. 
+      Manche Kuckucksarten haben die Größe und Farbe der Eier denen der Wirtseier angepasst, sodass fast kein Unterschied zwischen 
+      den Eiern mehr zu erkennen ist. Diese Tiere bevorzugen dann in der Regel eine Wirtsvogelart.         
 
 
     \subsection{Basis Version}
@@ -160,16 +173,16 @@ Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassu
         \end{algorithmic}
       \end{algorithm}
 
-      Um eine neue Generation von Lösungen von einem Kuckuck zu erzeugen, wird der Levy Flight genutzt. 
+      Um eine neue Generation von Lösungen von einem Kuckuck zu erzeugen, wird der Lévy Flight genutzt. 
       In verschiedenen Studien wurde gezeigt, dass das Flugverhalten verschiedener Tiere und Insekten die 
-      Eigenschaft eines Levy Flights besitzen \cite{b4},\cite{b5},\cite{b6}. Die Definition des Levy Flights 
-      stammt von Mathematikern der Chaostheorie und ist sehr nützlich um zufällige oder pseudo-zufällige natürliche 
-      Phänomena zu beschreiben. Abbildung \ref{fig:levyFlight} zeigt ein Beispiel eines Levy Flights beginnend im Punkt (0,0).
+      Eigenschaft eines Lévy Flights besitzen \cite{b4},\cite{b5},\cite{b6}. Die Definition des Lévy Flights 
+      stammt von Mathematikern der Chaostheorie und ist sehr nützlich, um zufällige oder pseudo-zufällige natürliche 
+      Phänomena zu beschreiben. Abbildung \ref{fig:levyFlight} zeigt ein Beispiel eines Lévy Flights beginnend im Punkt (0,0).
 
       \begin{figure}
         \centering
         \includegraphics[width=0.8\linewidth]{LevyFlight.png}
-        \caption{Levy Flight beginnend im Punkt (0,0).}
+        \caption{Lévy Flight beginnend im Punkt (0,0).}
         \label{fig:levyFlight}
       \end{figure}
 
@@ -185,7 +198,7 @@ Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassu
       werden soll, das zu weit geflogen wird, kann $\alpha = O(L/100)$ genutzt werden. $L$ ist dabei die 
       Skalierung für das spezifische Problem.
 
-      Um den Lévy Flight zu implementieren ist ein schneller Algorithmus nötig, der den Lèvy Flight approximiert. 
+      Um den Lévy Flight zu implementieren ist ein schneller Algorithmus nötig, der den Lévy Flight approximiert. 
       In \cite{b8} werden drei Algorithmen für die Approximation des Lévy Flights verglichen. Der 
       Mantegna Algorithmus benötigt für die Aufgabe die unten aufgeführten drei Schritte. Die Schrittweite $s$ wird mit
       
@@ -232,7 +245,7 @@ Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassu
 
   \section{Anpassung des Cuckoo Search für die betrachteten Probleme}
     \subsection{Cuckoo Search für das Traveling Salesman Problem}
-      Bekanntlich befindet sich das TSP in einem kombinatorischen Raum und der CS wurde entworfen, 
+      Bekanntlich befindet sich das TSP in einem kombinatorischen Raum. Der CS wurde entworfen, 
       um Lösungen in einem kontinuierlichen Raum zu finden. Um jetzt den CS für die Lösung des TSP anzupassen, 
       müssen die fünf Hauptbegriffe des CS (Ei, Nest, Zielfunktion, Suchraum und Lévy Flight) an das TSP angepasst werden. 
 
@@ -242,16 +255,16 @@ Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassu
       Ein Nest enthält die Eier, also enthält ein Nest ein oder mehrere mögliche Lösungen des Problems. 
       In diesem Fall also ein oder mehrere Hamiltonkreise.
 
-      Beim TSP ist die kürzeste Route zwischen den Städten gesucht. Als Zielfunktion wird hier also 
+      Beim TSP ist die kürzeste Route zwischen den Städten gesucht. Als Zielfunktion wird hier 
       die Länge des Hamiltonkreises genutzt. 
 
-      Da die Position der Städte fest ist und diese somit nicht verändert werden können, lassen sich 
+      Da die Position der Städte fest ist und diese nicht verändert werden können, lässt sich 
       die Lösungen nur durch die Reihenfolge der besuchten Städte verändern. Der Suchraum umfasst somit alle 
       möglichen Anordnungen der Städte. Die Reihenfolge der besuchten Städte lässt sich mit dem 2-opt-move \cite{b10} 
       und den Double-Bridge-move \cite{b10} verändern. Der 2-opt-move wird dabei genutzt, um eine kleine Änderung 
-      in der Lösung zu machen und der Double-Bride-move wird für große Änderungen genutzt. Wie 
-      in Abbildung \ref{fig:2-opt-move} zu sehen, entfernt der 2-opt-move zwei Kanten und verbindet die zwei 
-      Pfade neu. Der Double-Bride-move entfernt vier Kanten und erstellt neue Kanten, so wie in 
+      in dem Suchraum zu erzeugen und der Double-Bride-move wird für große Änderungen genutzt. Wie 
+      in Abbildung \ref{fig:2-opt-move} zu sehen, entfernt der 2-opt-move zwei Kanten und erstellt zwei neue Kanten. 
+      Der Double-Bride-move entfernt vier Kanten und erstellt neue Kanten, so wie in 
       Abbildung \ref{fig:double-bridge-move} zu sehen ist.
 
       \begin{figure}
@@ -281,7 +294,6 @@ Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassu
       \end{enumerate}
 
 
-    \label{Implementierung Repair}
     \subsection{Cuckoo Search für das Sequential Ordering Problem}
       Der größte Unterschied für den Algorithmus von TSP zu SOP ist, dass der Algorithmus Lösungen 
       produzieren kann die nicht mehr korrekt (engl. valid) sind. Beim TSP musste nur darauf geachtet werden, 
@@ -294,11 +306,11 @@ Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassu
 
     \subsection{Handicap}
       Beim Handicap werden invalide 
-      Ergebnisse beibehalten in der Population. Ihre Fitness hingegen wird mittels eines Handicaps 
-      verschlechtert. Das Abschwächen ist also sogesehen die ''Bestrafung'' dafür das es sich bei der 
+      Ergebnisse in der Population beibehalten. Ihre Fitness hingegen wird mittels eines Handicaps 
+      verschlechtert. Das Abschwächen ist also sogesehen die ''Bestrafung'' dafür, dass es sich bei der 
       Lösung um ein invalides Ergebnis handelt. Der Vorteil dieser Lösung ist, dass auch eine solche 
       Lösung noch gute Bestandteile beinhaltet die vom Schwarm übernommen werden können. Hätte sie
-      keine guten Bestandteile würde sich durch das Handicap so schlecht werden, dass sie aus der
+      keine guten Bestandteile, würde sie durch das Handicap so schlecht werden, dass sie aus der
       Population ausscheidet. Nachteil an diesem Ansatz ist, dass das Balancing des Handicaps 
       enorm schwer ist. Ist das Handicap viel zu stark, werden invalide Lösung nicht wirklich 
       betrachten und könnten auch direkt gelöscht werden. Ist wiederrum das Handicap zu schwach, 
@@ -327,11 +339,11 @@ Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassu
       könnte dazu führen, dass kleiner Veränderungen durch die Operaten (Swap, CrossBridge) sonst verloren gehen würden.
       Des weiteren ist der Repair-Schritt ein unnatürlicher Eingriff in die natürliche Lösungsfindung des Cuckoo's Algorithmus, 
       weswegen dieser möglichst klein Ausfallen sollte.
-      Der Rapair-Schritt schien uns für den Cukoo's Algorthimus am passensten, da dieser die Komplexität des Algorithmus nicht erhöht, aber 
-      gleichzeitig keine **Balancing** Probleme mit sich bringt. Die genaue Implementierung des Schritte wird im folgenden Abschnitt \ref{Implementierung Repair}
-      beschrieben.
+      Der Rapair-Schritt schien uns für den Cukoo's Algorthimus am passensten, da dieser die Komplexität des Algorithmus nicht erhöht, 
+      aber gleichzeitig keine **Balancing** Probleme mit sich bringt. Die genaue Implementierung des Schritte wird im folgenden 
+      Abschnitt \ref{Implementierung Repair} beschrieben.
 
-    \subsection{Implementierung}
+    \subsection{Implementierung} \label{Implementierung Repair}
       Im Cuckoo's Algorithmus, muss an drei Orten festgestellt werden, dass nur valide Ergebnisse erstellt werden. Die einzigen Punkte im 
       Algorithmus wo unvalide Ergebnisse auftretten, ist bei der Initialisierung und den beiden Operatoren. 
       Da die **Initialisierung** TSP Reihenfolgen erstellt, werden diese im Nachhinein so transformiert, dass sie dem SOP entsprechen. 
