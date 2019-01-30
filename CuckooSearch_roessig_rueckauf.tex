@@ -231,8 +231,6 @@ Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassu
       verbessert, da weniger Iterationen benötigt werden und er eine besser Resistenz gegenüber lokalen Minima besitzt \cite{b9}.
 
   \section{Anpassung des Cuckoo Search für die betrachteten Probleme}
-   
-
     \subsection{Cuckoo Search für das Traveling Salesman Problem}
       Bekanntlich befindet sich das TSP in einem kombinatorischen Raum und der CS wurde entworfen, 
       um Lösungen in einem kontinuierlichen Raum zu finden. Um jetzt den CS für die Lösung des TSP anzupassen, 
@@ -333,7 +331,7 @@ Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassu
       gleichzeitig keine **Balancing** Probleme mit sich bringt. Die genaue Implementierung des Schritte wird im folgenden Abschnitt \ref{Implementierung Repair}
       beschrieben.
 
-
+    \subsection{Implementierung}
       Im Cuckoo's Algorithmus, muss an drei Orten festgestellt werden, dass nur valide Ergebnisse erstellt werden. Die einzigen Punkte im 
       Algorithmus wo unvalide Ergebnisse auftretten, ist bei der Initialisierung und den beiden Operatoren. 
       Da die **Initialisierung** TSP Reihenfolgen erstellt, werden diese im Nachhinein so transformiert, dass sie dem SOP entsprechen. 
