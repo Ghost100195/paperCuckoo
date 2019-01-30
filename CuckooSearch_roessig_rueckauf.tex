@@ -19,7 +19,7 @@
 
   \author{
     \IEEEauthorblockN{
-      \textsuperscript{st} Lennard Rössig}
+      1\textsuperscript{st} Lennard Rössig}
       \IEEEauthorblockA{\textit{Hochschule Hannover} \\
       \textit{Fakultät IV - Abteilung Informatik}\\
               Hannover, Niedersachsen \\
@@ -36,15 +36,7 @@
   \maketitle
 
   \begin{abstract}
-    In dieser Arbeit haben wir den metaheuristischen Algorithmus Cuckoo Search (CS) implementiert, 
-    um damit zwei Optimierungsproblem zu lösen. Die grundlegende Idee des Algorithmus ist abgeleitet 
-    von dem Brutparasitismus einiger Kuckuck-Arten. Das Bewegungsmuster des Kuckucks wird in dem 
-    Algorithmus durch den Levy Flight erzeugt. Dieser erzeugt ein Bewegungsmuster wie es bei einigen 
-    Vögeln und Insekten beobachtet wurde.  Es wurden die beiden NP-harten Probleme, des 
-    Travelling-Salesmans (TSP) und des Sequenc-Ordering (SOP) betrachtet und mit dem Algorihtmus 
-    gelöst. Da die Arbeit im Kontext eines Projektes erscheint, in dem mehrere metaheuristische 
-    Algorithmen verglichen wurden, haben wir zum Schluss nur die Benchmarks und Ergebnisse des 
-    hier angewandten Algorithmus gelistet.
+In dieser Arbeit wurde der metaheuristischen Algorithmus Cuckoo Search (CS) implementiert, um damit zwei Optimierungsproblem zu lösen. Die grundlegende Idee des Algorithmus ist abgeleitet von dem Brutparasitismus einiger Kuckuck-Arten. Das Bewegungsmuster des Kuckucks wird in dem Algorithmus durch den Levy Flight erzeugt. Dieser erzeugt ein Bewegungsmuster wie es bei einigen Vögeln und Insekten beobachtet wurde.  Es wurden die beiden NP-harten Probleme, des Travelling-Salesmans (TSP) und des Sequenc-Ordering (SOP) betrachtet und mit dem Algorihtmus gelöst. Da die Arbeit im Kontext eines Projektes erscheint, in dem mehrere metaheuristische Algorithmen verglichen wurden, sind zum Schluss nur die Benchmarks und Ergebnisse des hier angewandten Algorithmus gelistet.
   \end{abstract}
 
   \begin{IEEEkeywords}
@@ -52,8 +44,9 @@
   \end{IEEEkeywords}
 
   \section{Einleitung}
-    This document is a model and instructions for \LaTeX.
-    Please observe the conference page limits. 
+    Viele Optimierungsprobleme sind NP-hart und damit existiert kein Algorithmus, der dieses Problem effizient lösen kann. Für solche Probleme können Metaheuristiken zur näherungsweisen Lösung eingesetzt werden. Metaheuristiken definieren dabei eine abstrakte Folge von Schritten, die auf beliebige Problemstellungen angewandt werden können. Die einzelnen Schritte müssen allerdings wieder problemspezifisch implementiert werden. Erfolg und Laufzeit hängen von der Definition und Implementierung dieser Schritte ab. 
+
+Ein Bereich der Metaheuristiken sind die naturanalogenen Algorithmen, deren Vorgehen sich aus der Natur ableitet. In diesem Zusammenhang wird der Cuckoo Search (CS) Algorithmus betrachtet und einmal auf das Traveling Salesman Problem (TSP) und Sequential Ordering Problem (SOP) angewandt. Der CS ist ein noch recht junger Algorithmus, der 2009 von Xin-She Yang und Suash Deb entwickelt wurde \cite{b1}. Die Experimente wurde für das euklidische, symmetrische TSP durchgeführt und die genutzten Daten stammen aus der TSPLIB Library \cite{b12}.
 
   \section{Traveling Salesman Problem und Sequential Ordering Problem}
     \subsection{Traveling Salesman Problem}
@@ -111,30 +104,13 @@
 
   \section{Grundlagen des Cuckoo Search}
     \subsection{Brutverhalten des Kuckucks}
-      Die Grundidee des Algorithmus wurde von dem Brutverhalten des Namensgebenden Kuckucks abgeleitet. 
-      Das Brutverhalten des Kuckucks ist der sogenannter Brutparasitismus. Bei diesem Verhalten 
-      wird das eigene Gelege nicht selbst bebrütet, sondern es wird ein Ersatzwirt gesucht, 
-      der das Ei ausbrütet und sich auch um die Fütterung und Aufzucht des fremden Nachwuchses kümmert.
+Die Grundidee des Algorithmus wurde von dem Brutverhalten des namensgebenden Kuckucks abgeleitet. Das Brutverhalten des Kuckucks ist der sogenannter Brutparasitismus. Bei diesem Verhalten wird das eigene Gelege nicht selbst bebrütet, sondern es wird ein Ersatzwirt gesucht, der das Ei ausbrütet und sich auch um die Fütterung und Aufzucht des fremden Nachwuchses kümmert.
 
-      Die Brutschmarotzer haben dadurch den Vorteil, dass sie sich nicht um die zeitintensive 
-      Aufzucht der Nachkommen kümmern müssen. Sie verringern dadurch ihren Aufwand für die Brutpflege 
-      und haben mehr Zeit Nahrung für sich selbst zu finden. Sie sind dadurch in der Lage mehr Eier zu legen 
-      und können so potenziell mehr Nachkommen erzeugen. 
+Die Brutschmarotzer müssen sich durch dieses Verhalten nicht um die zeitintensive Aufzucht der Nachkommen kümmern. Sie verringern somit den Aufwand für die Brutpflege und haben mehr Zeit Nahrung für sich selbst zu finden. Dadurch sind sie in der Lage mehr Eier zu legen und können so potenziell mehr Nachkommen erzeugen. 
 
-      Unter den Wirtstieren gibt es aber auch solche, die die fremden Eier entdecken. Dann gibt es zwei 
-      verschiedene Strategien. Werden die fremden Eier entdeckt, so werden sie entweder aus dem Nest geschmissen 
-      oder das ganze Gelege wird verlassen und ein neues angelegt. 
+Unter den Wirtstieren gibt es aber auch solche, die die fremden Eier entdecken. Dann gibt es zwei verschiedene Strategien. Werden die fremden Eier entdeckt, so werden sie entweder aus dem Nest geschmissen oder das ganze Gelege wird verlassen und ein neues angelegt. 
 
-      Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassungen entwickelt, 
-      um das Risiko der Entdeckung zu minimieren. Bei einigen Arten erfolgt die Eireifung simultan zu 
-      der des Wirtstieres. Die Eier des Kuckucks besitzen meist eine kürzere Brutzeit, sodass der Kuckuck 
-      als erster schlüpft und er dann die anderen Eier aus dem Nest schmeißt. Die meisten Kuckucksküken 
-      wachsen in den ersten Tagen schneller als die Küken der Wirtseltern und haben dadurch einen entscheidenden 
-      Fütterungs- und Wachstumsvorteil.  Zudem erfolgt die Eiablage in beschleunigter Form, d.h. das Ei 
-      wird im Eileiter aufbewahrt und kann dann im Gelegenheitsfall schnell gelegt werden. Es wurden in der Natur 
-      Eiablagezeiten von nur 10 Sekunden gemessen. Manche Kuckucksarten haben die Größe und Farbe der Eier denen 
-      der Wirtseier angepasst, sodass fast kein Unterschied zwischen den Eiern mehr zu erkennen ist. Diese Tiere 
-      bevorzugen dann in der Regel eine Wirtsvogelart.     
+Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassungen entwickelt, um das Risiko der Entdeckung zu minimieren. Bei einigen Arten erfolgt die Eireifung simultan zu der des Wirtstieres. Die Eier des Kuckucks besitzen meist eine kürzere Brutzeit, sodass der Kuckuck als erster schlüpft und er dann die anderen Eier aus dem Nest schmeißt. Die meisten Kuckucksküken wachsen in den ersten Tagen schneller als die Küken der Wirtseltern und haben dadurch einen entscheidenden Fütterungs- und Wachstumsvorteil.  Zudem erfolgt die Eiablage in beschleunigter Form, d.h. das Ei wird im Eileiter aufbewahrt und kann dann im Gelegenheitsfall schnell gelegt werden. Es wurden in der Natur Eiablagezeiten von nur 10 Sekunden gemessen. Manche Kuckucksarten haben die Größe und Farbe der Eier denen der Wirtseier angepasst, sodass fast kein Unterschied zwischen den Eiern mehr zu erkennen ist. Diese Tiere bevorzugen dann in der Regel eine Wirtsvogelart.         
 
 
     \subsection{Basis Version}
@@ -237,7 +213,7 @@
       Weise, wie ein Kuckuck den Suchraum erkundet, zu verbessern. Ein Kuckuck kann eine gewisse Intelligenz 
       besitzen, so dass er bessere Lösungen findet. Dadurch kann die Intensivierung und die Diversifikation der 
       Suche durch den Kuckuck beeinflusst werden. Angepasst an das intelligenter Verhalten einiger Kuckucke, 
-      führen ein Teil der Kuckucke in dem verbesserten CS einen initialen Schritt zu einer neuen Lösung über 
+      führt ein Teil der Kuckucke einen initialen Schritt zu einer neuen Lösung über 
       den Lévy Flight durch und suchen von dort aus eine neue, bessere Lösung über eine lokale Suche.
 
       Ausgehend davon, kann die Population der Kuckucke in dem verbesserten CS in drei Typen unterteilt werden.
@@ -440,6 +416,7 @@
   \bibitem{b9} Quaarab, A., Ahiod, B., Yang, X.S.: Discrete cuckoo search algorithm for the travelling salesman problem. Neural Comput and Applic (2014) 24:1659–1669, DOI 10.1007/s00521-013-1402-2.
   \bibitem{b10} Croes, G.A.: A Method for Solving Traveling-Salesman Problems. Operation Research, 6, 791-812, (1958). 
   \bibitem{b11} Martin, O., Otto, S.W., Felten, E.W.: Large-Step Markov Chains for the traveling salesman problem. Complex Syst. 5(3), 299-326 (1991).
+  \bibitem{b12} https://www.iwr.uni-heidelberg.de/groups/comopt/software/TSPLIB95/ Zuletzt aufgerufen: 30.01.2019
       
 
   \end{thebibliography}
