@@ -68,37 +68,45 @@
 
 
     \subsection{Sequential Ordering Problem}
-      Beim Sequential Ordering Problem (SOP) handelt es sich um ein Spezialfall des TSP, welches
-      im vorherigen Abschnitt \cite{TSP} beschriben wurde. Im Unterschied zum TSP gibt es Bedingungen
-      (engl. ''Condition'') die beim Konstruieren der Reihenfolge der Punkte eingehalten werden
-      müssen. Des Weiteren sieht das SOP feste Start- und Endpunkte vor. 
-      Definieren lässt sich das wie folgt: $P$ ist die Menge aller Punkte des Problems $T$, wobei 
-      $P_i \in T$ den $i$-ten Punkt des Problems referenziert. Der Startknoten ist dabei der Konstruieren
-      $P_0$ und der Endknoten $P_{n-1}$, wobei $n = |T|$. Jeder Punkt $P_i$ hat eine Liste
-      von Bedingungen zu anderen Punkten, wobei diese Liste wie folgt definiert ist: 
-
-      \begin{equation}
-          D_i = P\backslash\{P_i, P_n\}
-      \end{equation}
-
-      \begin{equation}
-          B_n = P\backslash\{P_n\}
-      \end{equation}
-
-      \begin{equation}
+      Beim Sequential Ordering Problem (SOP) handelt es sich wie beim TSP um einen Graphen im euklidischen zweidimensionalen Raum. 
+      Im Gegensatz zum TSP sind die Eigenschaften einer korrekten (engl. valid) Reihenfolge strenger. Hierbei müssen 
+      bestimmte Bedingungen (engl. Condition) hinsichtlich des Aufbaus einer solchen Reihenfolge eingehalten werden. 
+      Ist $P$ die Menge aller Knoten des SOP's so lässt sich jeder Knoten mittels $P_i | i \in \mathbb{N}$ referenzieren. 
+      Um eine korrekte Reihenfolge zu konstruieren, muss diese mit $P_0$ starten und auf $P_{n-1}$ enden. 
+      Bei $P_0$ und $P_{n-1}$ handelt es sich um einen festen Start- und Endknoten. Der Endknoten ist dabei der letzte Knoten 
+      des Problems, daher ist $n = |P|$.  Zusätzlich zu dieser Einschränkung besitzen die Knoten untereinander Beziehungen/Bedingungen. 
+      Eine Bedingung bedeutet, dass ein bestimmter Knoten vor einem anderen Knoten in der Reihenfolge liegt. Besitzt also $P_x$ eine 
+      Bedingung zu $P_y$ so muss $P_y$ vor $P_x$ in der Reihenfolge besucht werden. Jeder Knoten besitzt eine Bedingungsmenge $B_i | i \in \mathbb{N}$, 
+      wobei $i$ die Bedingungsmenge des $i$-ten Knotens des Problems $P$ meint. Für eine korrekte Reihenfolge müssen also folgende Bedingungen gelten:
+      \begin{itemize}
+        \item jeder Knoten wird nur einmal besucht
+        \item alle Bedingungen werden eingehalten
+      \end{itemize}
+    
+      In den Bedingungen lassen sich die festen Start- und Endknoten definieren. 
+      Die Bedingungsmenge des Startknotens \eqref{Bedingungsmenge P0} ist leer, 
+      da dieser ganz vorne stehen muss. Im Gegensatz enthält die Bedingungsmenge des 
+      Endknotens \eqref{Bedingungsmenge Pn} alle anderen Knoten, da diese vor ihm sein müssen. 
+    
+      
+      \begin{equation}\label{Bedingungsmenge P0}
           B_0 = \emptyset
       \end{equation}
+    
+      
+      \begin{equation}\label{Bedingungsmenge Pn}
+          B_{n-1} = P\backslash\{P_{n-1}\}
+      \end{equation}
+    
+      Für die Bedingungen gilt zusätzlich, dass ein Knoten nicht zu sich selber eine Bedingung besitzen kann.
+      Des Weiteren kann ein Knoten aber nicht eine Bedingung zu einem anderen Knoten besitzen, wenn dieser eine Bedingung zu ihm hat. 
+      Falls eine solche Beziehung erlaubt wäre, wäre das SOP unlösbar, da beide Knoten jeweils den anderen Knoten vor sich erwarten.
+      Die Bedingungsmenge alle andere Knoten \eqref{Bedingungsmenge Pi} darf nicht sich selbst und den Endknoten enthalten, aber muss den Startknoten
+      besitzen.
 
-      ,wobei $B_i$ die Bedingungsmenge des $P_i$ Knoten ist. In $B$ sind alle Bedingungsmengen 
-      $B_i$ enthalten. 
-      Mittels $B_{i,k} | k < |B_i|$ lassen sich die einzelnen Knoten in der Menge der Knoten $B_i$
-      referenzieren. Wenn als $P_i$ eine Bedingung zu einem anderen Knoten $P_t$ bestitzt, 
-      so muss der Knoten $P_t$ in der Reihenfolge vor dem Knoten $P_i$ sein. 
-      Anhand dessen ist zu erkennen, dass sich $B_i$ noch genauer definieren lässt,
-      da es nicht möglich ist, dass ein Punkt $P_i$ eine Bedingung zu einem anderen Knoten 
-      $P_t$ besitzt, wenn $B_t \cap \{P_i\} \neq \emptyset$ ist. Wäre dies möglich, müsste der
-      Punkt $P_i$ vor und nach dem Punkt $P_t$ kommen. Dies ist nicht möglich, da eine
-      valide Reihenfolge $R$ nur jeden Punkt einmal besuchen darf.
+      \begin{equation}\label{Bedingungsmenge Pi}
+          B_i \subseteq P\backslash\{P_i, P_n\} | B_i \cap \{P_0\} \neq \emptyset
+      \end{equation}
 
 
   \section{Grundlagen des Cuckoo Search}

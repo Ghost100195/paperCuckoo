@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.1.19)  29 JAN 2019 22:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.1.19)  30 JAN 2019 10:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/ubuntu/Downloads/Ausarbeitung_Latex/CuckooSearch_roessig_rueckauf.tex
-(/home/ubuntu/Downloads/Ausarbeitung_Latex/CuckooSearch_roessig_rueckauf.tex
+**/home/ubuntu/Ausarbeitung_Latex/CuckooSearch_roessig_rueckauf.tex
+(/home/ubuntu/Ausarbeitung_Latex/CuckooSearch_roessig_rueckauf.tex
 LaTeX2e <2018-12-01>
 (/usr/share/texlive/texmf-dist/tex/latex/IEEEtran/IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
@@ -408,7 +408,7 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-) (/home/ubuntu/Downloads/Ausarbeitung_Latex/CuckooSearch_roessig_rueckauf.aux
+) (/home/ubuntu/Ausarbeitung_Latex/CuckooSearch_roessig_rueckauf.aux
 
 LaTeX Warning: Label `eq' multiply defined.
 
@@ -498,50 +498,46 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 36.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-LaTeX Warning: Citation `TSP' on page 1 undefined on input line 72.
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 2111) in paragraph at lines 179--184
+Underfull \hbox (badness 2111) in paragraph at lines 187--192
 []\OT1/ptm/m/n/10 Um ei-ne neue Ge-ne-ra-ti-on von L[]osungen von ei-nem
  []
 
-<LevyFlight.png, id=16, 360.6273pt x 348.8232pt>
+<LevyFlight.png, id=17, 360.6273pt x 348.8232pt>
 File: LevyFlight.png Graphic file (type png)
 <use LevyFlight.png>
-Package pdftex.def Info: LevyFlight.png  used on input line 187.
+Package pdftex.def Info: LevyFlight.png  used on input line 195.
 (pdftex.def)             Requested size: 201.60077pt x 194.99901pt.
-[2 </home/ubuntu/Downloads/Ausarbeitung_Latex/LevyFlight.png>]
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 281.
+[2]
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 289.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [3]
-<2-opt-move.png, id=28, 199.2243pt x 109.48904pt>
+) [3 </home/ubuntu/Ausarbeitung_Latex/LevyFlight.png>]
+<2-opt-move.png, id=29, 199.2243pt x 109.48904pt>
 File: 2-opt-move.png Graphic file (type png)
 <use 2-opt-move.png>
-Package pdftex.def Info: 2-opt-move.png  used on input line 323.
+Package pdftex.def Info: 2-opt-move.png  used on input line 331.
 (pdftex.def)             Requested size: 201.60077pt x 110.79689pt.
-<double-Bridge.png, id=29, 199.10385pt x 99.85304pt>
+<double-Bridge.png, id=30, 199.10385pt x 99.85304pt>
 File: double-Bridge.png Graphic file (type png)
 <use double-Bridge.png>
-Package pdftex.def Info: double-Bridge.png  used on input line 330.
+Package pdftex.def Info: double-Bridge.png  used on input line 338.
 (pdftex.def)             Requested size: 201.60077pt x 101.10979pt.
 
-Underfull \hbox (badness 3895) in paragraph at lines 336--342
+Underfull \hbox (badness 3895) in paragraph at lines 344--350
 []\OT1/ptm/m/n/10 Um den Such-raum zu durch-su-chen, ha-ben wir die
  []
 
 
-LaTeX Warning: Reference `Alg.1.Repair' on page 4 undefined on input line 358.
+LaTeX Warning: Reference `Alg.1.Repair' on page 4 undefined on input line 366.
 
+[4 </home/ubuntu/Ausarbeitung_Latex/2-opt-move.png> </home/ubuntu/Ausarbeitung_Latex/double-Bridge.png>]
 
-LaTeX Warning: Reference `Alg.1.Repair' on page 4 undefined on input line 382.
+LaTeX Warning: Reference `Alg.1.Repair' on page 5 undefined on input line 390.
 
-[4 </home/ubuntu/Downloads/Ausarbeitung_Latex/2-opt-move.png> </home/ubuntu/Downloads/Ausarbeitung_Latex/double-Bridge.png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -553,7 +549,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[5] (/home/ubuntu/Downloads/Ausarbeitung_Latex/CuckooSearch_roessig_rueckauf.aux)
+[5] (/home/ubuntu/Ausarbeitung_Latex/CuckooSearch_roessig_rueckauf.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -562,18 +558,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5545 strings out of 492615
- 80315 string characters out of 6131390
- 171903 words of memory out of 5000000
- 9348 multiletter control sequences out of 15000+600000
+ 5547 strings out of 492615
+ 80280 string characters out of 6131390
+ 170927 words of memory out of 5000000
+ 9350 multiletter control sequences out of 15000+600000
  46449 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,35p,373b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/ubuntu/Downloads/Ausarbeitung_Latex/CuckooSearch_roessig_rueckauf.pdf (5 pages, 306990 bytes).
+ 41i,11n,35p,363b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on /home/ubuntu/Ausarbeitung_Latex/CuckooSearch_roessig_rueckauf.pdf (5 pages, 310132 bytes).
 PDF statistics:
- 78 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 82 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
