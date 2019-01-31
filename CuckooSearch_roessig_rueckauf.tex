@@ -431,49 +431,54 @@
 
       In Abbildung \ref{fig:generation} ist der Einfluss des Generation Parameters zu erkennen. Für den Durchlauf wurden 50 Nester und eine $P_a$ von 0.15 genutzt. 
       Zu erkennen ist, dass der Algorithmus bis 3400 Iterationen sich langsam immer weiter anpasst. Ab 3400 nimmt diese Kurve immer weiter ab, bis so gut wie keiner Verbesserung
-      mehr stattfindet. Diese Schranke lässt sich mittels Anpassung der Anzahl der Nester und des Werte $P_a$ weiter nach links, und somit <3400, oder rechts >3400 verschieben.
+      mehr stattfindet. Diese Schranke lässt sich mittels Anpassung der Anzahl der Nester und des Werte $P_a$ weiter nach links, und somit $<3400$, oder rechts $>3400$ verschieben.
       Generell lässt sich daher sagen, dass mit den von uns gewählten Parametern nur noch geringe Verbesserungen über 4000 Iterationen eintretten.
 
       \begin{figure}[H]
         \centering
-        \includegraphics[width=0.8\linewidth]{Generation.png}
+        \includegraphics[width=0.8\linewidth]{Generation2.png}
         \caption{Einfluss Anzahl der Generationen auf das Ergebnis}
         \label{fig:generation}
       \end{figure}
 
-      Daher sind unsere Parameter für den Cukoo's Algorithmus $P_a = 0.15$, Nester = 50 und die Anzahl an Generationen = 4000. 
+      Daher sind unsere Parameter für den Cukoo's Algorithmus:
+      \begin{itemize}
+        \item $P_a = 0.15$
+        \item Nester = 50
+        \item Generationen = 4000
+      \end{itemize}
+
+    \subsection{Ergebnisse}
+      \begin{table}[h]
+        \label{TSP}
+        \centering
+        \begin{tabular}{|l|ll|l|l|}
+        \hline
+            Datensatz & \multicolumn{1}{l|}{Start} & End  & Best & Abweichung \\ \hline
+            berlin52.tsp  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
+            ch130.tsp  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
+            a280.tsp  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
+            d1291.tsp  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
+        \end{tabular}
+        \caption[]{Ergebnisse TSP}
+      \end{table}
 
 
-    \begin{table}[h]
-      \label{TSP}
-      \centering
-      \begin{tabular}{|l|ll|l|l|}
-      \hline
-          Datensatz & \multicolumn{1}{l|}{Start} & End  & Best & Abweichung \\ \hline
-          berlin52.tsp  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-          ch130.tsp  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-          a280.tsp  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-          d1291.tsp  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-      \end{tabular}
-      \caption[]{Ergebnisse TSP}
-    \end{table}
 
-
-
-    \begin{table}[h]
-      \label{SOP}
-      \centering
-      \begin{tabular}{|l|ll|l|l|}
-      \hline
-          Datensatz & \multicolumn{1}{l|}{Start} & End  & Best & Abweichung \\ \hline
-          br17.10  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-          ESC25  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-          ESC63  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-          rgb174a  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-          rgb358a  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-      \end{tabular}
-      \caption[]{Ergebnisse SOP}
-    \end{table}
+      \begin{table}[h]
+        \label{SOP}
+        \centering
+        \begin{tabular}{|l|ll|l|l|}
+        \hline
+            Datensatz & \multicolumn{1}{l|}{Start} & End  & Best & Abweichung \\ \hline
+            br17.10  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
+            ESC25  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
+            ESC63  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
+            rgb174a  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
+            rgb358a  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
+        \end{tabular}
+        \caption[]{Ergebnisse SOP}
+      \end{table}
 
   \section{Fazit}
 
