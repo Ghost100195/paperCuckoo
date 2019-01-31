@@ -400,20 +400,22 @@
 
 
   \section{Evaluierung}
-    In diesem Abschnitt gehen wir auf die Parameter des Cuckoo's Algorithmuses ein und prüfen ihren Einfluss auf die Qualtität des Ergebnis.
+    In diesem Abschnitt gehen wir auf die Parameter des Cuckoo's Algorithmus ein und prüfen ihren Einfluss auf die Qualität des Ergebnisses.
     Dabei untersuchen wir verschiedene Anzahlen an Nester und Iterationen sowie unterschiedliche Wahrscheinlichkeiten $P_a$ dafür, dass ein Ei entdeckt wird 
     und aus dem Nest geworfen wird. Die Ergebnisse werden anschließend genutzt um den Cuckoo's Algorithmus auf mehreren 
-    Datensätzen zu testen. 
+    Datensätzen zu testen.
+
 
     \subsection{Parameter}
-      Alle Durchgeführten Tests arbeiten dabei auf dem Datensatz \emph{a280.tsp} der 280 Punkte besitzt. 
-      Beginnen tun wir mit dem Parameter $P_a$, dieser beschreibt die Entdeckungswahrhscheinlichkeit eines Ei's und somit sein rausschmieß. 
+      Alle Durchgeführten Tests arbeiten dabei auf dem Datensatz \emph{a280.tsp} der 280 Knoten besitzt. 
+      Beginnen tun wir mit dem Parameter $P_a$, dieser beschreibt die Entdeckungswahrscheinlichkeit eines Eies und somit das Ausscheiden aus der Population. 
       Dafür haben wir den Algorithmus mit fünf unterschiedlichen Werten laufen lassen, wobei diese von 10\% bis zu 30\% reichen. 
       Die Anzahl der Nester lag bei 50 und die Generationen bei 1000. 
       Anhand der Ergebnisse (Abb \ref{fig:pa}) lässt sich erkennen, dass der Einfluss des Parameters auf die Güte der Lösung sehr gering ist. Eine 
       niedrigere Entdeckungswahrscheinlichkeit sorgt geringfügig für ein schnelleres Anpassungsverhalten, hingegen sich dies im Endergebnis nicht wiederspiegelt. 
       Für ein gutes Anpassungsverhalten sollte $P_a$ daher nicht zu niedrig gesetzt werden, aber auch nicht zu hoch, damit noch eine Anpassung stattfindet. 
-      Die weiteren Tests werden daher mit einer $P_a = 0.15$ durchgeführt. 
+      Die weiteren Tests werden daher mit einer $P_a = 0.15$ durchgeführt.
+
       \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\linewidth]{Entdeckungswahrscheinlichkeit.png}
@@ -421,10 +423,11 @@
         \label{fig:pa}
       \end{figure}
 
-      Als nächsten wurde der Einfluss der Nester auf das Ergebnis geprüft. Dafür wurden acht Durchläufe mit steigerender Anzahl an Nestern von 25 bis 200 
+      Als nächsten wurde der Einfluss der Nester auf das Ergebnis geprüft. Dafür wurden acht Durchläufe mit steigender Anzahl an Nestern von 25 bis 200 
       gemacht. Hierbei wurden eine $P_a$ von 0.15 und 1000 Generationen genutzt. Die Ergebnisse (Abb. \ref{fig:nests}) zeigt, dass mit steigerender Anzahl der Nester wieder
       ein schnelleres Anpassungsverhalten vorliegt, dass aber wiederrum mit ansteigender Anzahl an Generationen verschwindet. Damit hat die Anzahl der Nester auch wieder
-      nur ein geringen Einfluss auf die Endqualität des Ergebnisses. Daher setzen wir für weitere Test die Anzahl an Nestern auf 50 fest. 
+      nur einen geringen Einfluss auf die Endqualität des Ergebnisses. Daher setzen wir für weitere Test die Anzahl an Nestern auf 50 fest.
+ 
 
       \begin{figure}[H]
         \centering
@@ -436,7 +439,8 @@
       In Abbildung \ref{fig:generation} ist der Einfluss des Generation Parameters zu erkennen. Für den Durchlauf wurden 50 Nester und eine $P_a$ von 0.15 genutzt. 
       Zu erkennen ist, dass der Algorithmus bis 3400 Iterationen sich langsam immer weiter anpasst. Ab 3400 nimmt diese Kurve immer weiter ab, bis so gut wie keiner Verbesserung
       mehr stattfindet. Diese Schranke lässt sich mittels Anpassung der Anzahl der Nester und des Werte $P_a$ weiter nach links, und somit $<3400$, oder rechts $>3400$ verschieben.
-      Generell lässt sich daher sagen, dass mit den von uns gewählten Parametern nur noch geringe Verbesserungen über 4000 Iterationen eintretten.
+      Generell lässt sich daher sagen, dass mit den von uns gewählten Parametern nur noch geringe Verbesserungen über 4000 Iterationen eintreten.
+
 
       \begin{figure}[H]
         \centering
@@ -453,10 +457,11 @@
       \end{itemize}
 
     \subsection{Ergebnisse}
-      Im folgenden werden das SOP sowie das TSP anhand einiger Beispiele aus der Datensatzsammlung der Uni-Heidelberg
-      \footnote{https://wwwproxy.iwr.uni-heidelberg.de/groups/comopt/software/TSPLIB95/} getest.
-      Dabei werden die Parameter aus den vorherigen Abschnitt genutzt. 
+      Im folgendem werden das SOP sowie das TSP anhand einiger Beispiele aus der Datensatzsammlung der Uni-Heidelberg
+      \footnote{https://wwwproxy.iwr.uni-heidelberg.de/groups/comopt/software/TSPLIB95/} getestet.
+      Dabei werden die Parameter aus dem vorherigen Abschnitt genutzt. 
       Die Ergebnisse sind der Mittelwert aus 10 Durchläufe auf dem jeweiligen Datensatz.
+
 
 
       \begin{table}[H]
