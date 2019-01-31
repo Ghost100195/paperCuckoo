@@ -318,43 +318,44 @@
 
     \subsection{Handicap}
       Beim Handicap werden invalide 
-      Ergebnisse beibehalten in der Population. Ihre Fitness hingegen wird mittels eines Handicaps 
+      Ergebnisse in der Population beibehalten. Ihre Fitness hingegen wird mittels eines Handicaps 
       verschlechtert. Das Abschwächen ist die ''Bestrafung'' dafür das es sich bei der 
       Lösung um ein invalides Ergebnis handelt. Der Vorteil dieser Variante ist, dass auch eine solche 
-      Lösung noch gute Bestandteile beinhalten kann, die vom Schwarm noch sinnvoll übernommen werden könnn. 
-      Besitzen diese aber keine guten Bestandteile, verschlechtern sie sich durch das Handicap stark, dass diese aus der
+      Lösung noch gute Bestandteile beinhalten kann, die vom Schwarm noch sinnvoll übernommen werden können. 
+      Besitzen diese aber keine guten Bestandteile, verschlechtern sie sich durch das Handicap stark, sodass diese aus der
       Population ausscheiden. Nachteil an diesem Ansatz ist, dass das Balancing des Handicaps 
       enorm schwer ist. Ist das Handicap viel zu stark, werden invalide Lösung nicht wirklich 
       betrachten und könnten auch direkt gelöscht werden. Ist wiederrum das Handicap zu schwach, 
       kann es passieren, dass die beste Lösung des Algorithmus ein invalides Ergebnis ist, was 
-      wiederrum auch nicht gut ist. Erst recht ist das Handicap im Falle von SOP/TSP schwer 
+      wiederrum unerwünscht ist. Erst recht ist das Handicap im Falle von SOP/TSP schwer 
       einzubringen, da die Fitness hierbei die Länge der Pfade ist. Die Problemstellung äußert 
-      sich also direkt in der Fitness das bedeutet, dass eine Fitness von 100 in dem einem Fall
-      gut und im anderen Fall eine Fitness von 10.000 gut ist. Das Handicap müsste in diesem Fall 
-      variable gestaltet werden. Problem hierbei ist, dass das optimale Ergebnis zu Beginn nicht 
+      sich also direkt in der Fitness was wiederrum bedeutet, dass eine Fitness von 100 in dem einem Fall
+      gut und in einem anderen Fall schlecht ist. Das Handicap müsste daher variable gestaltet werden. Problem hierbei ist, dass das optimale Ergebnis zu Beginn nicht 
       bekannt ist, wodurch ein relatives Handicap schwer umzusetzen ist. Des Weiteren besitzt der Cuckoo's Algorithmus
       nicht das klassische Verhalten eines Schwarms, da die einzelnen Individuen sich nicht stark aneinander Orientieren.
-      Aufgrund des fehlendem Schwarm-Verhalten, dem Balancing und dem Problem des schwer an zu passenden Handicaps, 
+      Aufgrund des fehlenden Schwarm-Verhaltens, dem Balancing und dem Problem des schwer an zu passenden Handicaps, 
       haben wir uns gegen diese Methode entschieden.
 
     \subsection{Operatoren} 
-      Eine weitere Variante ist es, die Operatoren (Double-Bridge-Move, 2-opt-swap) soweit anzupassen, dass diese
-      nur noch korrekte Ergebnisse erzeugen. Die beiden Operatoren des Cuckoo's Algorithmus besitzen einen einfachen 
+      Eine weitere Variante ist es, die Operatoren \textit{Double-Bridge-Move} und \textit{2-opt-swap} soweit anzupassen, dass diese
+      nur noch korrekte Ergebnisse erzeugen. Die beiden Operatoren des Cuckoo's Algorithmus besitzen eine einfache 
       Struktur ohne weitere Metriken, wodurch eine solche Veränderung schwer ist. 
       Des Weiteren würde eine solche Anpassung die Komplexität der Operatoren erhöhen, wodurch die Grundidee eines 
       einfach zu verstehenden Optimierungsalgorithmus verloren gehen würde. 
       Grad die Einfachheit des Cuckoo's Algorithmus macht diesen aus, weshalb wir uns gegen diese Anpassung entschieden haben.
 
+
     \subsection{Reparierung}
       Im Repair-Schritt wird ein ungültiger Weg wieder in einem gültigen Weg transformiert, wobei 
       versucht wird den gültigen Wissensgehalt, innerhalb der Lösung, nicht zu verändern. Dies bedeutet, 
-      dass gerade soviel geändert wird, dass die Reihenfolge wieder korrekt ist. Veränderungen darüber hinaus, 
-      könnte dazu führen, dass kleiner Veränderungen durch die Operaten sonst verloren gehen würden.
-      Des weiteren ist der Repair-Schritt ein unnatürlicher Eingriff in die natürliche Lösungsfindung des Cuckoo's Algorithmus, 
-      weswegen dieser möglichst klein Ausfallen sollte.
-      Der Rapair-Schritt schien uns für den Cukoo's Algorthimus am passendsten, da dieser die Komplexität des Algorithmus nicht erhöht, aber 
+      dass gerade so viel geändert wird, dass die Reihenfolge wieder korrekt ist. Veränderungen darüber hinaus, 
+      könnte dazu führen, dass kleiner Veränderungen durch die Operanten sonst verloren gehen würden.
+      Des Weiteren ist der \textit{Repair-Schritt} ein unnatürlicher Eingriff in die natürliche Lösungsfindung des Cuckoo's Algorithmus, 
+      weswegen dieser möglichst klein ausfallen sollte.
+      Der \textit{Rapair-Schritt} schien uns für den Cuckoo's Algorithmus am passendsten, da dieser die Komplexität des Algorithmus nicht erhöht, aber 
       gleichzeitig keine weiteren Probleme mit sich bringt. 
       Die genaue Implementierung des Schrittes wird im folgenden Abschnitt beschrieben.
+
 
     \subsection{Implementierung} \label{Implementierung Repair}
       Im Cuckoo's Algorithmus, muss an drei Orten festgestellt werden, dass nur korrekte Reihenfolgen erstellt werden. 
@@ -364,9 +365,10 @@
       nicht. Daher muss nach jeder Ausführung geprüft werden, ob es sich noch um eine valide Reihenfolge handelt. 
       Ausnahme ist hierbei, dass wenn mehrere \textit{Two-Opt-Swaps} hintereinander ausgeführt werden, nur das letzte Ergebnis 
       wieder zu einem validen transformiert wird. Dies folgt wieder dem Prinzip, dass nur möglichst wenig verändert/eingegriffen 
-      werden soll. Der \textit{DoubleBridgeMove} führt immer zu einer invaliden Reihenfolge, dies folgt aus der Definition der Methode. 
+      werden soll. Der \textit{Double-Bridge-Move} führt immer zu einer invaliden Reihenfolge, dies folgt aus der Definition der Methode. 
       Daher wird hier nach jeder Durchführung die Reihenfolge wieder repariert. Der Ablauf des \textit{Repair-Schrittes} ist immer 
       der gleiche und wird im Pseudocode \ref{Alg.1.Repair} dargestellt.
+
 
       
       \begin{algorithm}
@@ -389,11 +391,12 @@
         \end{algorithmic}
         \end{algorithm}
 
-      Die Laufzeit vom \textit{Repair-Schritt} beträgt dabei O($n^2$), wobei $n$ die Länge der Reihenfolge $R$ ist. Dies ergibt sich darauß, dass
+      Die Laufzeit vom \textit{Repair-Schritt} beträgt dabei O($n^2$), wobei $n$ die Länge der Reihenfolge $R$ ist. Dies ergibt sich aus der Tatsache, dass
       jede $swap$-Operation wieder zu einer neuen Verletzung der Bedingungen führen kann, weswegen ab Stelle $i$ erneut begonnen wird.
       Um also alle möglichen Verletzungen der Bedingungen zu finden, muss jeder Knoten $n_1$ mit jedem nachfolgendem Knoten $n_2$ geprüft werden. 
       Wie oben beschrieben, ist die Laufzeit abhängig von der Länge der Reihenfolge und dadurch direkt auch von der Größe des SOP's. 
-      Durch dieses Abhängigkeit, die zuvor nicht bestand, wird die Auswertungen von großen SOP's erheblich langsamer. 
+      Durch diese Abhängigkeit, die zuvor nicht bestand, wird die Auswertungen von großen SOP's erheblich langsamer.
+  
 
 
   \section{Evaluierung}
