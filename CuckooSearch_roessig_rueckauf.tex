@@ -419,7 +419,7 @@
 
       Für ein gutes Anpassungsverhalten sollte $P_a$ daher nicht zu niedrig gesetzt werden, aber auch nicht zu hoch, damit noch eine Anpassung stattfindet. 
       Die weiteren Tests werden daher mit einer $P_a = 0.15$ durchgeführt.
-      Die Veränderung des $P_a$ Faktor hat keinerlei Einfluss auf die Laufzeit des Algorithmuses.
+      Die Veränderung des $P_a$ Faktors hat keinerlei Einfluss auf die Laufzeit des Algorithmuses.
 
       \begin{figure}[h]
         \centering
@@ -430,7 +430,7 @@
       
 
       Als nächsten wurde der Einfluss der Nester auf das Ergebnis geprüft. Dafür wurden acht Durchläufe mit steigender Anzahl an Nestern von 25 bis 200 
-      gemacht. Hierbei wurden eine $P_a$ von 0.15 und 1000 Generationen genutzt. Die Ergebnisse (Abb. \ref{fig:nests}) zeigt, dass mit steigerender Anzahl der Nester wieder
+      gemacht. Hierbei wurden eine $P_a$ von 0.15 und 1000 Generationen genutzt. Das Ergebnis (Abb. \ref{fig:nests}) zeigt, dass mit steigerender Anzahl der Nester wieder
       ein schnelleres Anpassungsverhalten vorliegt, dass aber wiederrum mit ansteigender Anzahl an Generationen verschwindet. Damit hat die Anzahl der Nester auch wieder
       nur einen geringen Einfluss auf die Endqualität des Ergebnisses. Daher setzen wir für weitere Test die Anzahl an Nestern auf 50 fest.
       Durch Erhöhung der Nester erhöht sich die Laufzeit proportional linear.
@@ -444,7 +444,7 @@
       \end{figure}
 
       In Abbildung \ref{fig:generation} ist der Einfluss des Generation Parameters zu erkennen. Für den Durchlauf wurden 50 Nester und eine $P_a$ von 0.15 genutzt. 
-      Zu erkennen ist, dass der Algorithmus bis 3500 Iterationen sich langsam immer weiter anpasst. Ab 3500 nimmt diese Kurve immer weiter ab, bis so gut wie keiner Verbesserung
+      Zu erkennen ist, dass der Algorithmus bis 3500 Iterationen sich langsam immer weiter anpasst. Ab 3500 nimmt diese Kurve immer weiter ab, bis so gut wie keine Verbesserung
       mehr stattfindet. Diese Schranke lässt sich mittels Anpassung der Anzahl der Nester und des Werte $P_a$ weiter nach links, und somit $<3500$, oder rechts $>3500$ verschieben.
       Generell lässt sich daher sagen, dass mit den von uns gewählten Parametern nur noch geringe Verbesserungen über 4000 Iterationen eintreten.
       Der Einfluss auf die Laufzeit ist linear und dementsprechend auch mit hohen Zahlen vertretbar.
@@ -493,9 +493,9 @@
       Der Cuckoo's Algorithmus für kleine TSP erbringt gute Ergebnisse in linearer Zeit. Hingegen in der Tabelle auch zu erkennen, dass 
       mit wachsender Anzahl an Knoten, das Ergebnis immer schlechter wird. Für den Datensatz \textit{d1291} beträgt der Abstand zwischen dem besten und den vom Cuckoo erzeugten
       $222502 - 50801 = 171701$. Das bedeutet, dass der Cuckoo's Algorithmus mehr als $3x$ vom besten Ergebnis abweicht, was enorm ist. 
-      Hingegen bei kleineren TSP's performt der Algorithmus gut. 
+      Wiederrum bei kleineren TSP's performt der Algorithmus gut. 
       Durch die Unabhängigkeit des Algorithmuses gegenüber der Anzahl an Knoten in einem TSP, ist die Laufzeit auch bei großen
-      TSP's noch sehr gut. Nur die Berechnung der Fitness bremst hier den Algorithmus ein wenig aus. 
+      TSP's noch sehr gut. Nur die Berechnung der Fitness bremst hier den Algorithmus aus. 
       
 
       \begin{table}[]
@@ -507,21 +507,13 @@
             ESC07  & \multicolumn{1}{l|}{3200} & 2125 & 2125  & 0,00       \\ \hline
             ESC11  & \multicolumn{1}{l|}{3524} & 2075 & 2075 & 0,00       \\ \hline
             ESC12  & \multicolumn{1}{l|}{2352} & 1675 & 1675 & 0,00       \\ \hline
-
             br17.10  & \multicolumn{1}{l|}{119} & 55 & 55 & 0,00       \\ \hline
-
-
-            ESC25  & \multicolumn{1}{l|}{9477} & 2881 & 1681 & 0,71       \\ \hline
-            
+            ESC25  & \multicolumn{1}{l|}{9477} & 2881 & 1681 & 0,71       \\ \hline   
             ESC47  & \multicolumn{1}{l|}{17911} & 3513 & 1288 &  1,72      \\ \hline
-
             ESC63  & \multicolumn{1}{l|}{228} & 96 & 62 & 0,59       \\ \hline
-
             ESC78 & \multicolumn{1}{l|}{30728} & 19949 & 18230 &  0,09     \\ \hline
             ft70.1 & \multicolumn{1}{l|}{67388} & 48212 & 39313 &   0,22     \\ \hline
-
             rgb109a  & \multicolumn{1}{l|}{1889} & 1262 & 1038 &  0,21      \\ \hline
-
             rgb174a  & \multicolumn{1}{l|}{2940} & 2342 & 2053 & 0,14       \\ \hline
             rgb358a  & \multicolumn{1}{l|}{6626} & 4292 & [2518, 2758] & [0,7 - 0,54]       \\ \hline
         \end{tabular}
@@ -529,11 +521,11 @@
       \end{table}
 
       Im Gegensatz zum TSP, lässt sich beim SOP die Güte des Ergebnisses nicht anhand der Komplexität des Problemes ablesen. 
-      Die Komplexität des SOP liegt nicht nur innerhalb des Anzahl an Knoten sondern zudem in der Kette der Bedingungen. Dies lässt sich gut 
+      Die Komplexität eines SOP's liegt nicht nur innerhalb der Anzahl an Knoten sondern in der Bedingungsmenge. Dies lässt sich gut 
       in der Tabelle erkennen, da die Ergebnisse nicht gleichmäßig schlechter werden mit zunehmender Anzahl an Knoten. 
-      Die Güte des Ergebnisses scheint unabhängig von der Anzahl an Knoten zu sein. 
+      Damit scheint die Güte des Ergebnisses unabhängig von der Anzahl an Knoten zu sein. 
       Da die Laufzeit quadratisch zunimmt, dies liegt am \textit{Repair-Schritt}, und die Güte des Ergebnisses nicht 
-      eingeschätzt werden kann, eignet sich der Cuckoo's Algorithmus nicht für das SOP.
+      eingeschätzt werden kann, eignet sich der Cuckoo's Algorithmus nicht gut für das SOP.
 
 
 
@@ -547,7 +539,7 @@
     Gleichzeitig ist die Stärke des Algorithmus aber auch seine Schwäche. Durch den Verzicht 
     auf komplexe Metriken, sind Anpassung und damit Einwirkungen auf den Ablauf des Algorithmus schwierig.
     Der Algorithmus lässt sich daher, wenn keine guten Ergebnisse erzielt werden, nur schwer auf das Problem weiter anpassen. 
-    Die fehlenden Metriken und damit die Einfachheit sorgen dafür, dass Umsetzungen, wie die SOP Bedingungen, sich nicht elegant in das 
+    Die fehlenden Metriken und damit verbunden die Einfachheit sorgen dafür, dass Erweiterungen wie das SOP mit seinen Bedingungen, sich nicht elegant in das 
     Verfahren einbauen lassen.
 
     Generell eignet sich der Cuckoo's Algorithmus daher in Bereichen, wo schnell für kleiner Optimierungsproblem ein relativ 
