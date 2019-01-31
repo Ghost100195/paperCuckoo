@@ -306,53 +306,55 @@
 
 
     \subsection{Cuckoo Search für das Sequential Ordering Problem}
-      Der größte Unterschied für den Algorithmus von TSP zu SOP ist, dass der Algorithmus Lösungen 
-      produzieren kann die nicht mehr korrekt (engl. valid) sind. Beim TSP musste nur darauf geachtet werden, 
-      dass jede zufällig erzeugte Lösung zu beginn korrekt war, danach konnten durch die Operationen 
-      DoubleBrideMove und TwoOptSwap keine invaliden Ergebnisse produziert werden.
-      Mit SOP reicht es nicht mehr nur die Initialisierung valide zu gestalten, da auch die 
-      beiden Operationen zu invaliden Ergebnissen führen können. 
-      Es gibt mehrere Varianten mit invaliden Ergebnisse um zu gehen, die drei Bekanntesten sind 
-      dabei das Handicap, Reparieren und Operatoren Anpassung. 
+      Der größte Unterschied für den Cuckoo-Algorithmus vom TSP zum SOP ist, dass der Algorithmus Lösungen 
+      produzieren kann die nicht mehr korrekt (engl. valid) sind. Für das TSP wurden nur korrekte Lösungen erstellt, wenn die 
+      Operatoren auf korrekten Reihenfolgen arbeiten. Daher ist es ausreichend dort, darauf zu achten, dass die Initialisierung 
+      nur korrekt Reihenfolge erbrachte. Anschließend konnte durch die Operaten die Double-Bridge-move 
+      \ref{fig:double-bridge-move} und 2-opt-move \ref{fig:2-opt-move} keine inkorrekten Ergebnisse erzeugt werden.
+      Mit SOP reicht es nicht mehr nur die Initialisierung korrekt zu gestalten, da auch die 
+      beiden Operationen zu inkorrekt Ergebnissen führen können.
+      Im folgenden werden drei Varianten vorgestellt, die den Umgang mit inkorrekten Reihenfolge auf unterschiedliche
+      Art lösen. Anschließend wird die Implementierung einer dieser Varianten für den Cuckoo's Algorithmus gezeigt. 
 
     \subsection{Handicap}
       Beim Handicap werden invalide 
-      Ergebnisse in der Population beibehalten. Ihre Fitness hingegen wird mittels eines Handicaps 
-      verschlechtert. Das Abschwächen ist also sogesehen die ''Bestrafung'' dafür, dass es sich bei der 
-      Lösung um ein invalides Ergebnis handelt. Der Vorteil dieser Lösung ist, dass auch eine solche 
-      Lösung noch gute Bestandteile beinhaltet die vom Schwarm übernommen werden können. Hätte sie
-      keine guten Bestandteile, würde sie durch das Handicap so schlecht werden, dass sie aus der
-      Population ausscheidet. Nachteil an diesem Ansatz ist, dass das Balancing des Handicaps 
+      Ergebnisse beibehalten in der Population. Ihre Fitness hingegen wird mittels eines Handicaps 
+      verschlechtert. Das Abschwächen ist die ''Bestrafung'' dafür das es sich bei der 
+      Lösung um ein invalides Ergebnis handelt. Der Vorteil dieser Variante ist, dass auch eine solche 
+      Lösung noch gute Bestandteile beinhalten kann, die vom Schwarm noch sinnvoll übernommen werden könnn. 
+      Besitzen diese aber keine guten Bestandteile, verschlechtern sie sich durch das Handicap stark, dass diese aus der
+      Population ausscheiden. Nachteil an diesem Ansatz ist, dass das Balancing des Handicaps 
       enorm schwer ist. Ist das Handicap viel zu stark, werden invalide Lösung nicht wirklich 
       betrachten und könnten auch direkt gelöscht werden. Ist wiederrum das Handicap zu schwach, 
       kann es passieren, dass die beste Lösung des Algorithmus ein invalides Ergebnis ist, was 
       wiederrum auch nicht gut ist. Erst recht ist das Handicap im Falle von SOP/TSP schwer 
       einzubringen, da die Fitness hierbei die Länge der Pfade ist. Die Problemstellung äußert 
-      sich also direkt in der Fitness, da bedeutet, dass eine Fitness von 100 in dem einen Fall
+      sich also direkt in der Fitness das bedeutet, dass eine Fitness von 100 in dem einem Fall
       gut und im anderen Fall eine Fitness von 10.000 gut ist. Das Handicap müsste in diesem Fall 
-      variable gestaltet werden. Problem hierbei ist, dass das optimale Ergebnis zu beginn nicht 
-      bekannt ist, wobei ein relatives Handicap schwer umzusetzen ist. Aus dem Balancing Problem 
-      und dem Problem das Handicap auf SOP/TSP anzuwenden, haben wir uns gegen diese Methode 
-      entschieden.
+      variable gestaltet werden. Problem hierbei ist, dass das optimale Ergebnis zu Beginn nicht 
+      bekannt ist, wodurch ein relatives Handicap schwer umzusetzen ist. Des Weiteren besitzt der Cuckoo's Algorithmus
+      nicht das klassische Verhalten eines Schwarms, da die einzelnen Individuen sich nicht stark aneinander Orientieren.
+      Aufgrund des fehlendem Schwarm-Verhalten, dem Balancing und dem Problem des schwer an zu passenden Handicaps, 
+      haben wir uns gegen diese Methode entschieden.
 
-    \subsection{Operatoren}
-      Mit der Anpassung der Operatoren ist gemeint, dass die Operatoren nur valide Ergebnisse erzeugen 
-      können. Im Falle des Cuckoo´s Algorithmus ist dies auch extrem schwer, da die Operationen 
-      an sich sehr einfach sind. Es werden keine weiteren Metriken verwendet, mit denen man eine 
-      solche Anpassung umsetzen könnte. Um den Algorithmus und damit die Operatoren nicht zu weit
-      weg von der Idee eines einfachen Optimierungsalgorithmus zu bringen, haben wir uns auch 
-      gegen diesen Ansatz entschieden.
+    \subsection{Operatoren} 
+      Eine weitere Variante ist es, die Operatoren (Double-Bridge-Move, 2-opt-swap) soweit anzupassen, dass diese
+      nur noch korrekte Ergebnisse erzeugen. Die beiden Operatoren des Cuckoo's Algorithmus besitzen einen einfachen 
+      Struktur ohne weitere Metriken, wodurch eine solche Veränderung schwer ist. 
+      Des Weiteren würde eine solche Anpassung die Komplexität der Operatoren erhöhen, wodurch die Grundidee eines 
+      einfach zu verstehenden Optimierungsalgorithmus verloren gehen würde. 
+      Grad die Einfachheit des Cuckoo's Algorithmus macht diesen aus, weshalb wir uns gegen diese Anpassung entschieden haben.
 
     \subsection{Reparierung}
       Im Repair-Schritt wird ein ungültiger Weg wieder in einem gültigen Weg transformiert, wobei 
       versucht wird den gültigen Wissensgehalt, innerhalb der Lösung, nicht zu verändern. Dies bedeutet, 
-      dass gerade soviel geändert wird, dass die Reihenfolge wieder valide ist. Veränderungen darüber hinaus, 
-      könnte dazu führen, dass kleiner Veränderungen durch die Operaten (Swap, CrossBridge) sonst verloren gehen würden.
+      dass gerade soviel geändert wird, dass die Reihenfolge wieder korrekt ist. Veränderungen darüber hinaus, 
+      könnte dazu führen, dass kleiner Veränderungen durch die Operaten sonst verloren gehen würden.
       Des weiteren ist der Repair-Schritt ein unnatürlicher Eingriff in die natürliche Lösungsfindung des Cuckoo's Algorithmus, 
       weswegen dieser möglichst klein Ausfallen sollte.
-      Der Rapair-Schritt schien uns für den Cukoo's Algorthimus am passensten, da dieser die Komplexität des Algorithmus nicht erhöht, 
-      aber gleichzeitig keine **Balancing** Probleme mit sich bringt. Die genaue Implementierung des Schritte wird im folgenden 
-      Abschnitt \ref{Implementierung Repair} beschrieben.
+      Der Rapair-Schritt schien uns für den Cukoo's Algorthimus am passendsten, da dieser die Komplexität des Algorithmus nicht erhöht, aber 
+      gleichzeitig keine weiteren Probleme mit sich bringt. 
+      Die genaue Implementierung des Schrittes wird im folgenden Abschnitt beschrieben.
 
     \subsection{Implementierung} \label{Implementierung Repair}
       Im Cuckoo's Algorithmus, muss an drei Orten festgestellt werden, dass nur valide Ergebnisse erstellt werden. Die einzigen Punkte im 
@@ -365,24 +367,23 @@
       Daher wird hier nach jeder Durchführung die Reihenfolge wieder repariert. 
       Der Ablauf des Repair-Schrittes ist dabei immer der gleiche und wird im Pseudocode Algorithmus \ref{Alg.1.Repair} dargestellt.
 
+      
       \begin{algorithm}
-        \caption{Cuckoo Search}\label{2}
+        \caption{Repair}\label{2}
         \begin{algorithmic}[1]
-        \State Objective function $f(x), x = (x_{i}, ...,x_{d})^T$
-        \State Generate initial population of $n$ host nests $x_{i} (i =1,...,n)$
-        \While{($t <$ MaxGeneration) or (stop criterion)}
-          \State Get a cuckoo randomly by Lévy Flights
-          \State Evaluate its quality/fitness $F_{i}$
-          \State Choose a nest among $n$ (say, $j$) randomly
-          \If {$F_{i} > F_{j}$} 
-            \State replace $j$ by the new solution
-          \EndIf
-          \State A fraction $(p_{a})$ of worse nest are abandoned 
-          \State and new ones are buildt 
-          \State Keep the best solutions (or nest with quality solutions)
-          \State Rank the solutions an find the current best
+        \State Erhalte Reihenfolge $R$ mit Länge $n$
+        \While{($i <$ $n$)}
+          \State $y = i+1$
+          \State $B_i$ ist die Bedingungsmenge des Knoten $i$
+          \While{($y <$ $n$)}
+            \If{$B_i \cap \{P_y\} \neq \emptyset$}
+              \State tausche Knote $i$ mit Knoten $y$
+              \State breche innere Schleife ab
+            \EndIf
+          \EndWhile
+          \State Erhöhe $i$ um 1, falls innere Schleife nicht abgebrochen wurde
         \EndWhile
-        \State Postprocess results and visualization
+        \State Valide Reihenfolge $R$
         
         \end{algorithmic}
         \end{algorithm}
@@ -451,39 +452,47 @@
     \subsection{Ergebnisse}
       Im folgenden werden SOP sowie TSP Probleme anhand von Datensätzen vom (xy-Uni.blabla) getestet. Dabei werden die Parameter
       aus den vorherigen Abschnitt genutzt. 
+      Für die Erfassung der Werte wurden jeweils 10 Durchläufe gemacht und anschließend der Mittelwert gebildet.
 
 
-      \begin{table}[h]
-        \label{TSP}
+      \begin{table}[H]
+        \label{table:TSP}
         \centering
         \begin{tabular}{|l|ll|l|l|}
         \hline
-            Datensatz & \multicolumn{1}{l|}{Start} & End  & Best & $\sim$Abweichung \\ \hline
+            Datensatz & \multicolumn{1}{l|}{Start} & End  & Best & $\sim$\%-Abweichung \\ \hline
             berlin52.tsp  & \multicolumn{1}{l|}{26174} & 7949 & 7542 & 0,05       \\ \hline
             ch130.tsp  & \multicolumn{1}{l|}{42378} & 6683 & 6110 & 0,09       \\ \hline
             a280.tsp  & \multicolumn{1}{l|}{31874} & 2974 & 2579 & 0,15       \\ \hline
             d493.tsp  & \multicolumn{1}{l|}{430752} & 43334 & 35003 & 0,23       \\ \hline
             d1291.tsp  & \multicolumn{1}{l|}{1682530} & 222502 & 50801 & 3,38       \\ \hline
         \end{tabular}
-        \caption[]{Ergebnisse TSP}
+        \caption{Ergebnisse TSP}
       \end{table}
+
+      Unser Algorithmus performt bei kleinen TSP's gut, hingegen mit steigender Komplexität des TSP's steigt die Abweichung zum Optimalen enorm an. 
+    
+
 
 
 
       \begin{table}[h]
-        \label{SOP}
+        \label{table:SOP}
         \centering
         \begin{tabular}{|l|ll|l|l|}
         \hline
-            Datensatz & \multicolumn{1}{l|}{Start} & End  & Best & Abweichung \\ \hline
+            Datensatz & \multicolumn{1}{l|}{Start} & End  & Best & $\sim$ \%-Abweichung \\ \hline
             br17.10  & \multicolumn{1}{l|}{119} & 55 & 55 & 0,00       \\ \hline
             ESC25  & \multicolumn{1}{l|}{9477} & 2881 & 1681 & 0,71       \\ \hline
             ESC63  & \multicolumn{1}{l|}{228} & 96 & 62 & 0,59       \\ \hline
             rgb174a  & \multicolumn{1}{l|}{2940} & 2342 & 2053 & 0,14       \\ \hline
             rgb358a  & \multicolumn{1}{l|}{6626} & 4292 & [2518, 2758] & [0,7 - 0,54]       \\ \hline
         \end{tabular}
-        \caption[]{Ergebnisse SOP}
+        \caption{Ergebnisse SOP}
       \end{table}
+
+      Das SOP ist ein komplexeres Problem als das TSP, wodurch sich die schwierigkeit nicht direkt anhand der Anzahl an Knoten ablesen lässt.
+      Daher schwankt hier die Güte des Cuckoo's Algorithmus zwischen größeren und kleineren SOP's stark. 
 
   \section{Fazit}
 
