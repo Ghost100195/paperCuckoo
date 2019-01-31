@@ -11,6 +11,8 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{caption}
+\captionsetup[table]{position=bottom}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -38,8 +40,8 @@
   \begin{abstract}
     In dieser Arbeit wurde der metaheuristischen Algorithmus Cuckoo Search (CS) implementiert, um damit zwei Optimierungsproblem zu lösen. 
     Die grundlegende Idee des Algorithmus ist abgeleitet von dem Brutparasitismus einiger Kuckuck-Arten. Das Bewegungsmuster des Kuckucks 
-    wird in dem Algorithmus durch den Levy Flight erzeugt. Dieser erzeugt ein Bewegungsmuster wie es bei einigen Vögeln und Insekten 
-    beobachtet wurde.  Es wurden die beiden NP-harten Probleme, des Travelling-Salesmans (TSP) und des Sequenc-Ordering (SOP) betrachtet 
+    wird in dem Algorithmus durch den Lévy Flight erzeugt. Dieser erzeugt ein Bewegungsmuster wie es bei einigen Vögeln und Insekten 
+    beobachtet wurde. Es wurden die beiden NP-harten Probleme des Travelling-Salesmans (TSP) und des Sequenc-Ordering (SOP) betrachtet 
     und mit dem Algorihtmus gelöst. Da die Arbeit im Kontext eines Projektes erscheint, in dem mehrere metaheuristische Algorithmen verglichen 
     wurden, sind zum Schluss nur die Benchmarks und Ergebnisse des hier angewandten Algorithmus gelistet.
   \end{abstract}
@@ -55,7 +57,7 @@
     problemspezifisch implementiert werden. Erfolg und Laufzeit hängen von der Definition und Implementierung dieser Schritte ab. 
 
     Ein Bereich der Metaheuristiken sind die naturanalogenen Algorithmen, deren Vorgehen sich aus der Natur ableitet. In diesem Zusammenhang 
-    wird der Cuckoo Search (CS) Algorithmus betrachtet und einmal auf das Traveling Salesman Problem (TSP) und Sequential Ordering Problem (SOP) 
+    wird der Cuckoo Search (CS) Algorithmus betrachtet und einmal auf das Traveling Salesman Problem (TSP) und das Sequential Ordering Problem (SOP) 
     angewandt. Der CS ist ein noch recht junger Algorithmus, der 2009 von Xin-She Yang und Suash Deb entwickelt wurde \cite{b1}. 
     Die Experimente wurden für das euklidische, symmetrische TSP durchgeführt und die genutzten Daten stammen aus der TSPLIB Library \cite{b12}.
 
@@ -105,8 +107,8 @@
       Für die Bedingungen gilt zusätzlich, dass ein Knoten nicht zu sich selber eine Bedingung besitzen kann.
       Des Weiteren kann ein Knoten aber nicht eine Bedingung zu einem anderen Knoten besitzen, wenn dieser eine Bedingung zu ihm hat. 
       Falls eine solche Beziehung erlaubt wäre, wäre das SOP unlösbar, da beide Knoten jeweils den anderen Knoten vor sich erwarten.
-      Die Bedingungsmenge alle andere Knoten \eqref{Bedingungsmenge Pi} darf nicht sich selbst und den Endknoten enthalten, aber muss den Startknoten
-      besitzen.
+      Die Bedingungsmenge alle andere Knoten \eqref{Bedingungsmenge Pi} darf nicht sich selbst und den Endknoten enthalten, aber muss 
+      den Startknoten besitzen.
 
       \begin{equation}\label{Bedingungsmenge Pi}
           B_i \subseteq P\backslash\{P_i, P_n\} | B_i \cap \{P_0\} \neq \emptyset
@@ -131,7 +133,7 @@
       zu minimieren. Bei einigen Arten erfolgt die Eireifung simultan zu der des Wirtstieres. Die Eier des Kuckucks besitzen meist 
       eine kürzere Brutzeit, sodass der Kuckuck als erster schlüpft und er dann die anderen Eier aus dem Nest schmeißt. Die meisten 
       Kuckucksküken wachsen in den ersten Tagen schneller als die Küken der Wirtseltern und haben dadurch einen entscheidenden 
-      Fütterungs- und Wachstumsvorteil.  Zudem erfolgt die Eiablage in beschleunigter Form, d.h. das Ei wird im Eileiter aufbewahrt 
+      Fütterungs- und Wachstumsvorteil. Zudem erfolgt die Eiablage in beschleunigter Form, d.h. das Ei wird im Eileiter aufbewahrt 
       und kann dann im Gelegenheitsfall schnell gelegt werden. Es wurden in der Natur Eiablagezeiten von nur 10 Sekunden gemessen. 
       Manche Kuckucksarten haben die Größe und Farbe der Eier denen der Wirtseier angepasst, sodass fast kein Unterschied zwischen 
       den Eiern mehr zu erkennen ist. Diese Tiere bevorzugen dann in der Regel eine Wirtsvogelart.         
@@ -233,7 +235,7 @@
 
     \subsection{Verbesserte Version}
       In der Basisversion wird noch nicht das unterschiedliche Verhalten der Kuckucke bei der Auswahl 
-      des Nests in betracht gezogen. Quaarrad et al. \cite{b9} beschreibt eine Möglichkeit die Art und 
+      des Nests in Betracht gezogen. Quaarrad et al. \cite{b9} beschreibt eine Möglichkeit die Art und 
       Weise, wie ein Kuckuck den Suchraum erkundet, zu verbessern. Ein Kuckuck kann eine gewisse Intelligenz 
       besitzen, so dass er bessere Lösungen findet. Dadurch kann die Intensivierung und die Diversifikation der 
       Suche durch den Kuckuck beeinflusst werden. Angepasst an das intelligenter Verhalten einiger Kuckucke, 
@@ -251,8 +253,8 @@
       \end{enumerate}
 
       Diese Anpassungen verbessern die Intensität der Suche um die aktuell besten Lösungen und gleichzeitig wird 
-      die Zufälligkeit mit der neue Gebiete erschlossen werden erhöht. Dadurch wird die Performanz und die Effizienz 
-      verbessert, da weniger Iterationen benötigt werden und er eine besser Resistenz gegenüber lokalen Minima besitzt \cite{b9}.
+      die Zufälligkeit, mit der neue Gebiete erschlossen werden erhöht. Dadurch werden die Performanz und die Effizienz 
+      verbessert, da weniger Iterationen benötigt werden und er eine bessere Resistenz gegenüber lokalen Minima besitzt \cite{b9}.
 
   \section{Anpassung des Cuckoo Search für die betrachteten Probleme}
     \subsection{Cuckoo Search für das Traveling Salesman Problem}
@@ -260,7 +262,7 @@
       um Lösungen in einem kontinuierlichen Raum zu finden. Um jetzt den CS für die Lösung des TSP anzupassen, 
       müssen die fünf Hauptbegriffe des CS (Ei, Nest, Zielfunktion, Suchraum und Lévy Flight) an das TSP angepasst werden. 
 
-      Im CS repräsentiert ein Ei eine möglich Lösung das Problems. Beim TSP ist eine mögliche Lösung eine 
+      Im CS repräsentiert ein Ei eine mögliche Lösung des Problems. Beim TSP ist eine mögliche Lösung eine 
       Route durch alle Städte. Diese Route ist ein Hamiltonkreis.
 
       Ein Nest enthält die Eier, also enthält ein Nest ein oder mehrere mögliche Lösungen des Problems. 
@@ -280,20 +282,20 @@
 
       \begin{figure}
       \centering
-        \includegraphics[width=1\linewidth]{2-opt-move.png}
+        \includegraphics[width=0.9\linewidth]{2-opt-move.png}
         \caption{2-opt-move. a initiale Tour. b durch 2-opt-move erzeugte Tour. Kanten (a,b) und (d,c) wurden durch Kanten (a,c) und (b,d) ersetzt}
         \label{fig:2-opt-move}
       \end{figure}
 
       \begin{figure}
       \centering
-        \includegraphics[width=1\linewidth]{double-Bridge.png}
+        \includegraphics[width=0.9\linewidth]{double-Bridge.png}
         \caption{Double-Bridge-move. a initiale Tour. b durch Double-Bridge-move erzeugte Tour. Kanten 
         (a,b), (c,d), (e,f) und (g,h) wurden durch Kanten (a,f), (g,d), (e,b) und (g,d) ersetzt}
         \label{fig:double-bridge-move}
       \end{figure}
 
-      Um den Suchraum zu durchsuchen, haben wir die Möglichkeit dies in kleinen Schritten, 
+      Um den Suchraum zu durchsuchen, haben wir die Möglichkeit dies in kleinen Schritten 
       oder in großen Schritten zu tun. Um jetzt die Schrittweise an den Lévy Flight anzupassen, 
       werden die Werte des Lévy Flight auf ein Intervall zwischen 0 und 1 abgebildet. Das Intervall kann dann in 
       verschiedene Abschnitte unterteilt werden, so dass wir die Schrittlänge anpassen können.
@@ -309,12 +311,12 @@
       Der größte Unterschied für den Cuckoo-Algorithmus vom TSP zum SOP ist, dass der Algorithmus Lösungen 
       produzieren kann die nicht mehr korrekt (engl. valid) sind. Für das TSP wurden nur korrekte Lösungen erstellt, wenn die 
       Operatoren auf korrekten Reihenfolgen arbeiten. Daher ist es ausreichend dort, darauf zu achten, dass die Initialisierung 
-      nur korrekt Reihenfolge erbrachte. Anschließend konnte durch die Operaten die Double-Bridge-move 
+      nur korrekt Reihenfolge erbrachte. Anschließend konnte durch die Operaten die Double-Bridge-Move 
       \ref{fig:double-bridge-move} und 2-opt-move \ref{fig:2-opt-move} keine inkorrekten Ergebnisse erzeugt werden.
       Mit SOP reicht es nicht mehr nur die Initialisierung korrekt zu gestalten, da auch die 
       beiden Operationen zu inkorrekt Ergebnissen führen können.
-      Im folgenden werden drei Varianten vorgestellt, die den Umgang mit inkorrekten Reihenfolge auf unterschiedliche
-      Art lösen. Anschließend wird die Implementierung einer dieser Varianten für den Cuckoo's Algorithmus gezeigt. 
+      Im Folgenden werden drei Varianten vorgestellt, die den Umgang mit inkorrekten Reihenfolgen auf unterschiedliche
+      Art lösen. Anschließend wird die Implementierung einer dieser Varianten für den CS gezeigt. 
 
     \subsection{Handicap}
       Beim Handicap werden invalide 
@@ -331,18 +333,18 @@
       einzubringen, da die Fitness hierbei die Länge der Pfade ist. Die Problemstellung äußert 
       sich also direkt in der Fitness was wiederrum bedeutet, dass eine Fitness von 100 in dem einem Fall
       gut und in einem anderen Fall schlecht ist. Das Handicap müsste daher variable gestaltet werden. Problem hierbei ist, dass das optimale Ergebnis zu Beginn nicht 
-      bekannt ist, wodurch ein relatives Handicap schwer umzusetzen ist. Des Weiteren besitzt der Cuckoo's Algorithmus
+      bekannt ist, wodurch ein relatives Handicap schwer umzusetzen ist. Des Weiteren besitzt der CS
       nicht das klassische Verhalten eines Schwarms, da die einzelnen Individuen sich nicht stark aneinander Orientieren.
       Aufgrund des fehlenden Schwarm-Verhaltens, dem Balancing und dem Problem des schwer an zu passenden Handicaps, 
       haben wir uns gegen diese Methode entschieden.
 
     \subsection{Operatoren} 
-      Eine weitere Variante ist es, die Operatoren \textit{Double-Bridge-Move} und \textit{2-opt-swap} soweit anzupassen, dass diese
-      nur noch korrekte Ergebnisse erzeugen. Die beiden Operatoren des Cuckoo's Algorithmus besitzen eine einfache 
+      Eine weitere Variante ist es, die Operatoren \textit{Double-Bridge-move} und \textit{2-opt-move} soweit anzupassen, dass diese
+      nur noch korrekte Ergebnisse erzeugen. Die beiden Operatoren des CS besitzen eine einfache 
       Struktur ohne weitere Metriken, wodurch eine solche Veränderung schwer ist. 
       Des Weiteren würde eine solche Anpassung die Komplexität der Operatoren erhöhen, wodurch die Grundidee eines 
       einfach zu verstehenden Optimierungsalgorithmus verloren gehen würde. 
-      Grad die Einfachheit des Cuckoo's Algorithmus macht diesen aus, weshalb wir uns gegen diese Anpassung entschieden haben.
+      Grade die Einfachheit macht den CS aus, weshalb wir uns gegen diese Anpassung entschieden haben.
 
 
     \subsection{Reparierung}
@@ -350,22 +352,22 @@
       versucht wird den gültigen Wissensgehalt, innerhalb der Lösung, nicht zu verändern. Dies bedeutet, 
       dass gerade so viel geändert wird, dass die Reihenfolge wieder korrekt ist. Veränderungen darüber hinaus, 
       könnte dazu führen, dass kleiner Veränderungen durch die Operanten sonst verloren gehen würden.
-      Des Weiteren ist der \textit{Repair-Schritt} ein unnatürlicher Eingriff in die natürliche Lösungsfindung des Cuckoo's Algorithmus, 
+      Des Weiteren ist der \textit{Repair-Schritt} ein unnatürlicher Eingriff in die natürliche Lösungsfindung des CS, 
       weswegen dieser möglichst klein ausfallen sollte.
-      Der \textit{Rapair-Schritt} schien uns für den Cuckoo's Algorithmus am passendsten, da dieser die Komplexität des Algorithmus nicht erhöht, aber 
+      Der \textit{Rapair-Schritt} schien uns für den CS am passendsten, da dieser die Komplexität des Algorithmus nicht erhöht, aber 
       gleichzeitig keine weiteren Probleme mit sich bringt. 
       Die genaue Implementierung des Schrittes wird im folgenden Abschnitt beschrieben.
 
 
     \subsection{Implementierung} \label{Implementierung Repair}
-      Im Cuckoo's Algorithmus, muss an drei Orten festgestellt werden, dass nur korrekte Reihenfolgen erstellt werden. 
+      Im CS, muss an drei Orten festgestellt werden, dass nur korrekte Reihenfolgen erstellt werden. 
       Die einzigen Punkte im Algorithmus wo inkorrekte Ergebnisse auftreten können, ist bei der \textit{Initialisierung} 
       und nach den beiden Operatoren. Da die \textit{Initialisierung} TSP Reihenfolgen erstellt, werden diese im Nachhinein so 
-      transformiert, dass sie dem SOP entsprechen. Der \textit{Two-Opt-Swap} kann zu invaliden Reihenfolgen führen, muss dies aber 
+      transformiert, dass sie dem SOP entsprechen. Der \textit{2-Opt-move} kann zu invaliden Reihenfolgen führen, muss dies aber 
       nicht. Daher muss nach jeder Ausführung geprüft werden, ob es sich noch um eine valide Reihenfolge handelt. 
-      Ausnahme ist hierbei, dass wenn mehrere \textit{Two-Opt-Swaps} hintereinander ausgeführt werden, nur das letzte Ergebnis 
+      Ausnahme ist hierbei, dass wenn mehrere \textit{2-Opt-moves} hintereinander ausgeführt werden, nur das letzte Ergebnis 
       wieder zu einem validen transformiert wird. Dies folgt wieder dem Prinzip, dass nur möglichst wenig verändert/eingegriffen 
-      werden soll. Der \textit{Double-Bridge-Move} führt immer zu einer invaliden Reihenfolge, dies folgt aus der Definition der Methode. 
+      werden soll. Der \textit{Double-Bridge-move} führt immer zu einer invaliden Reihenfolge, dies folgt aus der Definition der Methode. 
       Daher wird hier nach jeder Durchführung die Reihenfolge wieder repariert. Der Ablauf des \textit{Repair-Schrittes} ist immer 
       der gleiche und wird im Pseudocode \ref{Alg.1.Repair} dargestellt.
 
@@ -400,9 +402,9 @@
 
 
   \section{Evaluierung}
-    In diesem Abschnitt gehen wir auf die Parameter des Cuckoo's Algorithmus ein und prüfen ihren Einfluss auf die Qualität des Ergebnisses.
-    Dabei untersuchen wir verschiedene Anzahlen an Nester und Iterationen sowie unterschiedliche Wahrscheinlichkeiten $P_a$ dafür, dass ein Ei entdeckt wird 
-    und aus dem Nest geworfen wird. Die Ergebnisse werden anschließend genutzt um den Cuckoo's Algorithmus auf mehreren 
+    In diesem Abschnitt gehen wir auf die Parameter des CS ein und prüfen ihren Einfluss auf die Qualität des Ergebnisses.
+    Dabei untersuchen wir verschiedene Anzahlen an Nester und Iterationen sowie unterschiedliche Wahrscheinlichkeiten $P_a$ dafür, dass ein 
+    Ei entdeckt wird und aus dem Nest geworfen wird. Die Ergebnisse werden anschließend genutzt um den CS auf mehreren 
     Datensätzen zu testen.
 
 
@@ -411,8 +413,9 @@
       Beginnen tun wir mit dem Parameter $P_a$, dieser beschreibt die Entdeckungswahrscheinlichkeit eines Eies und somit das Ausscheiden aus der Population. 
       Dafür haben wir den Algorithmus mit fünf unterschiedlichen Werten laufen lassen, wobei diese von 10\% bis zu 30\% reichen. 
       Die Anzahl der Nester lag bei 50 und die Generationen bei 1000. 
-      Anhand der Ergebnisse (Abb \ref{fig:pa}) lässt sich erkennen, dass der Einfluss des Parameters auf die Güte der Lösung sehr gering ist. Eine 
-      niedrigere Entdeckungswahrscheinlichkeit sorgt geringfügig für ein schnelleres Anpassungsverhalten, hingegen sich dies im Endergebnis nicht wiederspiegelt. 
+      Anhand der Ergebnisse (Abb \ref{fig:pa}) lässt sich erkennen, dass der Einfluss des Parameters auf die Güte der Lösung sehr gering ist. 
+      Eine niedrigere Entdeckungswahrscheinlichkeit sorgt geringfügig für ein schnelleres Anpassungsverhalten. 
+      Im Endergebnis spiegelt sich dies hingegen nicht wieder. 
       
      
 
@@ -429,8 +432,8 @@
       
 
       Als nächsten wurde der Einfluss der Nester auf das Ergebnis geprüft. Dafür wurden acht Durchläufe mit steigender Anzahl an Nestern von 25 bis 200 
-      gemacht. Hierbei wurden eine $P_a$ von 0.15 und 1000 Generationen genutzt. Die Ergebnisse (Abb. \ref{fig:nests}) zeigt, dass mit steigerender Anzahl der Nester wieder
-      ein schnelleres Anpassungsverhalten vorliegt, dass aber wiederrum mit ansteigender Anzahl an Generationen verschwindet. Damit hat die Anzahl der Nester auch wieder
+      gemacht. Hierbei wurden eine $P_a$ von 0.15 und 1000 Generationen genutzt. Die Ergebnisse (Abb. \ref{fig:nests}) zeigen, dass mit steigerender Anzahl 
+      der Nester wieder ein schnelleres Anpassungsverhalten vorliegt, welches aber wiederrum mit ansteigender Anzahl an Generationen verschwindet. Damit hat die Anzahl der Nester auch wieder
       nur einen geringen Einfluss auf die Endqualität des Ergebnisses. Daher setzen wir für weitere Test die Anzahl an Nestern auf 50 fest.
       Durch Erhöhung der Nester erhöht sich die Laufzeit proportional linear.
  
@@ -442,7 +445,7 @@
         \label{fig:nests}
       \end{figure}
 
-      In Abbildung \ref{fig:generation} ist der Einfluss des Generation Parameters zu erkennen. Für den Durchlauf wurden 50 Nester und eine $P_a$ von 0.15 genutzt. 
+      In Abbildung \ref{fig:generation} ist der Einfluss des Generationen Parameters zu erkennen. Für den Durchlauf wurden 50 Nester und ein $P_a$ von 0.15 genutzt. 
       Zu erkennen ist, dass der Algorithmus bis 3400 Iterationen sich langsam immer weiter anpasst. Ab 3400 nimmt diese Kurve immer weiter ab, bis so gut wie keiner Verbesserung
       mehr stattfindet. Diese Schranke lässt sich mittels Anpassung der Anzahl der Nester und des Werte $P_a$ weiter nach links, und somit $<3400$, oder rechts $>3400$ verschieben.
       Generell lässt sich daher sagen, dass mit den von uns gewählten Parametern nur noch geringe Verbesserungen über 4000 Iterationen eintreten.
@@ -465,12 +468,12 @@
 
     \subsection{Ergebnisse}
       Im folgendem werden das SOP sowie das TSP anhand einiger Beispiele aus der Datensatzsammlung der Uni-Heidelberg
-      \footnote{https://wwwproxy.iwr.uni-heidelberg.de/groups/comopt/software/TSPLIB95/} getestet.
+      \cite{b12} getestet.
       Dabei werden die Parameter aus dem vorherigen Abschnitt genutzt. 
       Die Ergebnisse sind der Mittelwert aus 10 Durchläufe auf dem jeweiligen Datensatz.
 
 
-
+	\renewcommand{\arraystretch}{1.5}
       \begin{table}[b]
         \label{table:TSP}
         \centering
@@ -490,10 +493,10 @@
         \caption{Ergebnisse TSP}
       \end{table}
 
-      Der Cuckoo's Algorithmus für kleine TSP erbringt gute Ergebnisse in linearer Zeit. Hingegen in der Tabelle auch zu erkennen, dass 
-      mit wachsender Anzahl an Knoten, das Ergebnis immer schlechter wird. Für den Datensatz \textit{d1291} beträgt der Abstand zwischen dem besten und den vom Cuckoo erzeugten
-      $222502 - 50801 = 171701$. Das bedeutet, dass der Cuckoo's Algorithmus mehr als $3x$ vom besten Ergebnis abweicht, was enorm ist. 
-      Hingegen bei kleineren TSP's performt der Algorithmus gut. 
+      Für kleine TSP erbringt der CS gute Ergebnisse in linearer Zeit. Hingegen in der Tabelle auch zu erkennen, dass 
+      mit wachsender Anzahl an Knoten, das Ergebnis immer schlechter wird. Für den Datensatz \textit{d1291} beträgt der Abstand zwischen 
+      dem besten und den vom CS erzeugten Ergebnis $222502 - 50801 = 171701$. Das bedeutet, dass der CS mehr als $3x$ vom besten Ergebnis 
+      abweicht, was enorm ist. Bei kleineren TSP's performt der Algorithmus hingegen gut. 
       Durch die Unabhängigkeit des Algorithmuses gegenüber der Anzahl an Knoten in einem TSP, ist die Laufzeit auch bei großen
       TSP's noch sehr gut. Nur die Berechnung der Fitness bremst hier den Algorithmus ein wenig aus. 
       
@@ -529,19 +532,19 @@
       \end{table}
 
       Im Gegensatz zum TSP, lässt sich beim SOP die Güte des Ergebnisses nicht anhand der Komplexität des Problemes ablesen. 
-      Die Komplexität des SOP liegt nicht nur innerhalb des Anzahl an Knoten sondern zudem in der Kette der Bedingungen. Dies lässt sich gut 
+      Die Komplexität des SOP liegt nicht nur innerhalb des Anzahl an Knoten, sondern zudem in der Kette der Bedingungen. Dies lässt sich gut 
       in der Tabelle erkennen, da die Ergebnisse nicht gleichmäßig schlechter werden mit zunehmender Anzahl an Knoten. 
       Die Güte des Ergebnisses scheint unabhängig von der Anzahl an Knoten zu sein. 
-      Da die Laufzeit quadratisch zunimmt, dies liegt am \textit{Repair-Schritt}, und die Güte des Ergebnisses nicht 
-      eingeschätzt werden kann, eignet sich der Cuckoo's Algorithmus nicht für das SOP.
+      Da die Laufzeit durch den \textit{Repair-Schritt} quadratisch zunimmt und die Güte des Ergebnisses nicht 
+      eingeschätzt werden kann, eignet sich der CS nicht für das SOP.
 
 
 
   \section{Fazit}
-    Das Konzept des Cuckoo's Algorithmus hinsichtlich des TSP und SOP ist einfach und schnell verstanden.
-    Durch wenige freie Parameter, die zudem nur einen geringen Einfluss auf den Algorithmus haben, sind nicht viele Anpassungsmöglichkeiten gegeben. 
-    Dies hat den Vorteil, dass nach Implementierung nur wenig Zeit aufgebracht werden muss, bis die ersten guten Ergebnisse vorhanden sind. 
-    Deshalb lässt sich sagen, dass der Cuckoo's Algorithmus durch seine geringe Komplexität,  
+    Das Konzept des CS hinsichtlich des TSP und SOP ist einfach und schnell verstanden.
+    Durch wenige freie Parameter, die zudem nur einen geringen Einfluss auf den Algorithmus haben, sind nicht viele Anpassungsmöglichkeiten 
+    gegeben. Dies hat den Vorteil, dass nach Implementierung nur wenig Zeit aufgebracht werden muss, bis die ersten guten Ergebnisse vorhanden sind. 
+    Deshalb lässt sich sagen, dass der CS durch seine geringe Komplexität,  
     Laufzeit und Robustheit gegen Änderungen, überzeugt. 
 
     Gleichzeitig ist die Stärke des Algorithmus aber auch seine Schwäche. Durch den Verzicht 
@@ -550,7 +553,7 @@
     Die fehlenden Metriken und damit die Einfachheit sorgen dafür, dass Umsetzungen, wie die SOP Bedingungen, sich nicht elegant in das 
     Verfahren einbauen lassen.
 
-    Generell eignet sich der Cuckoo's Algorithmus daher in Bereichen, wo schnell für kleiner Optimierungsproblem ein relativ 
+    Generell eignet sich der CS daher in Bereichen, wo schnell für kleinere Optimierungsproblem ein relativ 
     gutes Ergebnis gefunden werden muss. Für perfekte Resultate oder größere/komplexere Probleme ist die Anpassungsmöglichkeit 
     nicht gegeben, weshalb auf komplexere Algorithmen zurückgegriffen werden sollte.
 
@@ -569,6 +572,7 @@
   \bibitem{b10} Croes, G.A.: A Method for Solving Traveling-Salesman Problems. Operation Research, 6, 791-812, (1958). 
   \bibitem{b11} Martin, O., Otto, S.W., Felten, E.W.: Large-Step Markov Chains for the traveling salesman problem. Complex Syst. 5(3), 299-326 (1991).
   \bibitem{b12} https://www.iwr.uni-heidelberg.de/groups/comopt/software/TSPLIB95/ Zuletzt aufgerufen: 30.01.2019
+
       
 
   \end{thebibliography}
