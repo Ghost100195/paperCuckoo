@@ -307,13 +307,13 @@
 
     \subsection{Cuckoo Search für das Sequential Ordering Problem}
       Der größte Unterschied für den Cuckoo-Algorithmus vom TSP zum SOP ist, dass der Algorithmus Lösungen 
-      produzieren kann die nicht mehr korrekt (engl. valid) sind. Für das TSP wurden nur korrekte Lösungen erstellt, wenn die 
-      Operatoren auf korrekten Reihenfolgen arbeiten. Daher ist es ausreichend dort, darauf zu achten, dass die Initialisierung 
-      nur korrekt Reihenfolge erbrachte. Anschließend konnte durch die Operaten die Double-Bridge-move 
-      \ref{fig:double-bridge-move} und 2-opt-move \ref{fig:2-opt-move} keine inkorrekten Ergebnisse erzeugt werden.
-      Mit SOP reicht es nicht mehr nur die Initialisierung korrekt zu gestalten, da auch die 
-      beiden Operationen zu inkorrekt Ergebnissen führen können.
-      Im folgenden werden drei Varianten vorgestellt, die den Umgang mit inkorrekten Reihenfolge auf unterschiedliche
+      produzieren kann die nicht mehr valide sind. Für das TSP wurden nur gültige Lösungen erstellt, wenn die 
+      Operatoren auf gültigen Reihenfolgen arbeiten. Daher ist es ausreichend dort, darauf zu achten, dass die Initialisierung 
+      nur gültige Reihenfolge erbrachte. Anschließend konnte durch die Operaten Double-Bridge-move 
+      \ref{fig:double-bridge-move} und 2-opt-move \ref{fig:2-opt-move} keine ungültigen Ergebnisse erzeugt werden.
+      Mit SOP reicht es nicht mehr nur die Initialisierung gültig zu gestalten, da auch die 
+      beiden Operationen zu ungültigen Ergebnissen führen können.
+      Im folgenden werden drei Varianten vorgestellt, die den Umgang mit ungültigen Reihenfolge auf unterschiedliche
       Art lösen. Anschließend wird die Implementierung einer dieser Varianten für den Cuckoo's Algorithmus gezeigt. 
 
     \subsection{Handicap}
