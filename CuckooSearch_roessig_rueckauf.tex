@@ -357,19 +357,20 @@
       Die genaue Implementierung des Schrittes wird im folgenden Abschnitt beschrieben.
 
     \subsection{Implementierung} \label{Implementierung Repair}
-      Im Cuckoo's Algorithmus, muss an drei Orten festgestellt werden, dass nur valide Ergebnisse erstellt werden. Die einzigen Punkte im 
-      Algorithmus wo unvalide Ergebnisse auftretten, ist bei der Initialisierung und den beiden Operatoren. 
-      Da die **Initialisierung** TSP Reihenfolgen erstellt, werden diese im Nachhinein so transformiert, dass sie dem SOP entsprechen. 
-      Beim **2-Opt-Swap** können invalide Reihenfolgen erstellt werden, müssen aber nicht. Daher muss auch hier nach jeder Operation geprüft werden. 
-      Ausnahme ist hierbei, dass wenn mehrere **2-Opt-Swaps** hintereinander ausgeführt werden, nur das letzte Ergebnis wieder zu einem validen Transformiert wird. 
-      Dies folgt wieder dem Prinzip, dass nur möglichst wenig verändert/eingegriffen werden soll. 
-      Beim **DoubleBridgeMove** entstehen immer invalide Ergebnisse, dies ist aus der Definition der Operation ersichtlich. 
-      Daher wird hier nach jeder Durchführung die Reihenfolge wieder repariert. 
-      Der Ablauf des Repair-Schrittes ist dabei immer der gleiche und wird im Pseudocode Algorithmus \ref{Alg.1.Repair} dargestellt.
+      Im Cuckoo's Algorithmus, muss an drei Orten festgestellt werden, dass nur korrekte Reihenfolgen erstellt werden. 
+      Die einzigen Punkte im Algorithmus wo inkorrekte Ergebnisse auftreten können, ist bei der \textit{Initialisierung} 
+      und nach den beiden Operatoren. Da die \textit{Initialisierung} TSP Reihenfolgen erstellt, werden diese im Nachhinein so 
+      transformiert, dass sie dem SOP entsprechen. Der \textit{Two-Opt-Swap} kann zu invaliden Reihenfolgen führen, muss dies aber 
+      nicht. Daher muss nach jeder Ausführung geprüft werden, ob es sich noch um eine valide Reihenfolge handelt. 
+      Ausnahme ist hierbei, dass wenn mehrere \textit{Two-Opt-Swaps} hintereinander ausgeführt werden, nur das letzte Ergebnis 
+      wieder zu einem validen transformiert wird. Dies folgt wieder dem Prinzip, dass nur möglichst wenig verändert/eingegriffen 
+      werden soll. Der \textit{DoubleBridgeMove} führt immer zu einer invaliden Reihenfolge, dies folgt aus der Definition der Methode. 
+      Daher wird hier nach jeder Durchführung die Reihenfolge wieder repariert. Der Ablauf des \textit{Repair-Schrittes} ist immer 
+      der gleiche und wird im Pseudocode \ref{Alg.1.Repair} dargestellt.
 
       
       \begin{algorithm}
-        \caption{Repair}\label{2}
+        \caption{Repair}\label{Alg.1.Repair}
         \begin{algorithmic}[1]
         \State Erhalte Reihenfolge $R$ mit Länge $n$
         \While{($i <$ $n$)}
@@ -381,34 +382,33 @@
               \State breche innere Schleife ab
             \EndIf
           \EndWhile
-          \State Erhöhe $i$ um 1, falls innere Schleife nicht abgebrochen wurde
+          \State Erhöhe $i+1$, falls innere Schleife nicht abgebrochen
         \EndWhile
         \State Valide Reihenfolge $R$
         
         \end{algorithmic}
         \end{algorithm}
 
-      Die Laufzeit von \ref{Alg.1.Repair} beträgt dabei O($n^2$), wobei $n$ die Länge der Reihenfolge $R$ ist. Dies ergibt sich darauß, dass
-      jede $swap$-Operation wieder zu einer neuen Verletzung der Bedingungen führen kann, weswegen ab Stelle $i$ erneut begonnen wird. Um also alle möglichen Verletzungen
-      der Bedingungen zu finden, muss jeder Knoten $n_1$ mit jedem nachfolgendem Knoten $n_2$ geprüft werden. 
+      Die Laufzeit vom \textit{Repair-Schritt} beträgt dabei O($n^2$), wobei $n$ die Länge der Reihenfolge $R$ ist. Dies ergibt sich darauß, dass
+      jede $swap$-Operation wieder zu einer neuen Verletzung der Bedingungen führen kann, weswegen ab Stelle $i$ erneut begonnen wird.
+      Um also alle möglichen Verletzungen der Bedingungen zu finden, muss jeder Knoten $n_1$ mit jedem nachfolgendem Knoten $n_2$ geprüft werden. 
       Wie oben beschrieben, ist die Laufzeit abhängig von der Länge der Reihenfolge und dadurch direkt auch von der Größe des SOP's. 
       Durch dieses Abhängigkeit, die zuvor nicht bestand, wird die Auswertungen von großen SOP's erheblich langsamer. 
 
 
   \section{Evaluierung}
     In diesem Abschnitt gehen wir auf die Parameter des Cuckoo's Algorithmuses ein und prüfen ihren Einfluss auf die Qualtität des Ergebnis.
-    Dabei untersuchen wir verschiedene Anzahlen an Nester und Iterationen sowie unterschiedliche Wahrscheinlichkeiten dafür, dass ein Ei entdeckt wird 
-    und aus dem Nest geworfen wird ($P_a$). Die Ergebnisse werden anschließend genutzt um den Cuckoo's Algorithmus auf mehreren 
-    Datensätzen zu testen. Dabei Vergleichen wir unsere Ergebnisse zu Ergebnissen aus anderen Papern. 
+    Dabei untersuchen wir verschiedene Anzahlen an Nester und Iterationen sowie unterschiedliche Wahrscheinlichkeiten $P_a$ dafür, dass ein Ei entdeckt wird 
+    und aus dem Nest geworfen wird. Die Ergebnisse werden anschließend genutzt um den Cuckoo's Algorithmus auf mehreren 
+    Datensätzen zu testen. 
 
     \subsection{Parameter}
-      Alle Durchgeführten Tests arbeiten dabei auf dem Datensatz ''a280.tsp'' der 280 Punkte besitzt und ein Optimum von ''''???'''' besitzt. 
-      Beginnen tun wir mit dem Parameter $P_a$, dieser beschreibt die Entdeckungswahrhscheinlichkeit eines Ei und somit sein rausschmieß. 
-      Dafür haben wir den Algorithmus mit fünf unterschiedlichen Werten laufen lassen, wobei diese von 10\% bis zu 30\% reichen. Die Anzahl der Nester lag bei
-      50 und die Generationen bei 1000. 
+      Alle Durchgeführten Tests arbeiten dabei auf dem Datensatz \emph{a280.tsp} der 280 Punkte besitzt. 
+      Beginnen tun wir mit dem Parameter $P_a$, dieser beschreibt die Entdeckungswahrhscheinlichkeit eines Ei's und somit sein rausschmieß. 
+      Dafür haben wir den Algorithmus mit fünf unterschiedlichen Werten laufen lassen, wobei diese von 10\% bis zu 30\% reichen. 
+      Die Anzahl der Nester lag bei 50 und die Generationen bei 1000. 
       Anhand der Ergebnisse (Abb \ref{fig:pa}) lässt sich erkennen, dass der Einfluss des Parameters auf die Güte der Lösung sehr gering ist. Eine 
-      niedrigere Entdeckungswahrscheinlichkeit sorgt geringfügig für ein schnelleres Anpassungsverhalten, hingegen sich im Endergebnis dies 
-      nicht wiederspiegelt. 
+      niedrigere Entdeckungswahrscheinlichkeit sorgt geringfügig für ein schnelleres Anpassungsverhalten, hingegen sich dies im Endergebnis nicht wiederspiegelt. 
       Für ein gutes Anpassungsverhalten sollte $P_a$ daher nicht zu niedrig gesetzt werden, aber auch nicht zu hoch, damit noch eine Anpassung stattfindet. 
       Die weiteren Tests werden daher mit einer $P_a = 0.15$ durchgeführt. 
       \begin{figure}[H]
@@ -450,8 +450,8 @@
       \end{itemize}
 
     \subsection{Ergebnisse}
-      Im folgenden werden SOP sowie TSP Probleme anhand von Datensätzen vom (xy-Uni.blabla) getestet. Dabei werden die Parameter
-      aus den vorherigen Abschnitt genutzt. 
+      Im folgenden werden SOP sowie TSP Probleme anhand einiger Beispiele aus der Datensatzsammlung der Uni-heidelberg (***ref? ***) getest. ,
+      Dabei werden die Parameter aus den vorherigen Abschnitt genutzt. 
       Für die Erfassung der Werte wurden jeweils 10 Durchläufe gemacht und anschließend der Mittelwert gebildet.
 
 
@@ -473,9 +473,6 @@
       Unser Algorithmus performt bei kleinen TSP's gut, hingegen mit steigender Komplexität des TSP's steigt die Abweichung zum Optimalen enorm an. 
     
 
-
-
-
       \begin{table}[h]
         \label{table:SOP}
         \centering
@@ -491,10 +488,17 @@
         \caption{Ergebnisse SOP}
       \end{table}
 
-      Das SOP ist ein komplexeres Problem als das TSP, wodurch sich die schwierigkeit nicht direkt anhand der Anzahl an Knoten ablesen lässt.
+      Das SOP ist ein komplexeres Problem als das TSP, wodurch sich die Schwierigkeit nicht direkt anhand der Anzahl an Knoten ablesen lässt.
       Daher schwankt hier die Güte des Cuckoo's Algorithmus zwischen größeren und kleineren SOP's stark. 
 
   \section{Fazit}
+    Der Cuckoo's Algorithmus überzeugt durch seine geringe Komplexität, 
+    guten Laufzeit, anschaulichen Ergebnissen und Robustheit gegen Änderungen. 
+    Die Stärke des Algorithmus ist daher auch gleichzeitig seine Schwäche. Durch den Verzicht 
+    auf weitere Metriken, sind Anpassung und damit Einwirkungen auf den Ablauf des Algorithmus schwierig. 
+    Der Cuckoo's Algorithmus eignet sich daher gut für kleinere Optimierungsprobleme für die schnell ein relativ 
+    gutes Ergebnis gefunden werden muss. Für perfekte Resultate oder größere Probleme ist die Anpassungsmöglichkeit 
+    nicht gegeben, weshalb auf komplexere Algorithmen zurückgegriffen werden sollte. 
 
 
   \begin{thebibliography}{00}
