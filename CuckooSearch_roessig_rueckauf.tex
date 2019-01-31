@@ -192,7 +192,7 @@
 
       \begin{figure}
         \centering
-        \includegraphics[width=0.8\linewidth]{LevyFlight.png}
+        \includegraphics[width=1\linewidth]{LevyFlight.png}
         \caption{Lévy Flight beginnend im Punkt (0,0).}
         \label{fig:levyFlight}
       \end{figure}
@@ -280,14 +280,14 @@
 
       \begin{figure}
       \centering
-        \includegraphics[width=0.8\linewidth]{2-opt-move.png}
+        \includegraphics[width=1\linewidth]{2-opt-move.png}
         \caption{2-opt-move. a initiale Tour. b durch 2-opt-move erzeugte Tour. Kanten (a,b) und (d,c) wurden durch Kanten (a,c) und (b,d) ersetzt}
         \label{fig:2-opt-move}
       \end{figure}
 
       \begin{figure}
       \centering
-        \includegraphics[width=0.8\linewidth]{double-Bridge.png}
+        \includegraphics[width=1\linewidth]{double-Bridge.png}
         \caption{Double-Bridge-move. a initiale Tour. b durch Double-Bridge-move erzeugte Tour. Kanten 
         (a,b), (c,d), (e,f) und (g,h) wurden durch Kanten (a,f), (g,d), (e,b) und (g,d) ersetzt}
         \label{fig:double-bridge-move}
@@ -413,16 +413,20 @@
       Die Anzahl der Nester lag bei 50 und die Generationen bei 1000. 
       Anhand der Ergebnisse (Abb \ref{fig:pa}) lässt sich erkennen, dass der Einfluss des Parameters auf die Güte der Lösung sehr gering ist. Eine 
       niedrigere Entdeckungswahrscheinlichkeit sorgt geringfügig für ein schnelleres Anpassungsverhalten, hingegen sich dies im Endergebnis nicht wiederspiegelt. 
+      
+     
+
       Für ein gutes Anpassungsverhalten sollte $P_a$ daher nicht zu niedrig gesetzt werden, aber auch nicht zu hoch, damit noch eine Anpassung stattfindet. 
       Die weiteren Tests werden daher mit einer $P_a = 0.15$ durchgeführt.
       Die Veränderung des $P_a$ Faktor hat keinerlei Einfluss auf die Laufzeit des Algorithmuses.
 
-      \begin{figure}[H]
+      \begin{figure}[h]
         \centering
-        \includegraphics[width=0.8\linewidth]{Entdeckungswahrscheinlichkeit.png}
+        \includegraphics[width=1\linewidth]{Entdeckungswahrscheinlichkeit.png}
         \caption{Einfluss des Parameter $P_a$ auf das Ergebnis}
         \label{fig:pa}
       \end{figure}
+      
 
       Als nächsten wurde der Einfluss der Nester auf das Ergebnis geprüft. Dafür wurden acht Durchläufe mit steigender Anzahl an Nestern von 25 bis 200 
       gemacht. Hierbei wurden eine $P_a$ von 0.15 und 1000 Generationen genutzt. Die Ergebnisse (Abb. \ref{fig:nests}) zeigt, dass mit steigerender Anzahl der Nester wieder
@@ -431,9 +435,9 @@
       Durch Erhöhung der Nester erhöht sich die Laufzeit proportional linear.
  
 
-      \begin{figure}[H]
+      \begin{figure}[b]
         \centering
-        \includegraphics[width=0.8\linewidth]{Nester.png}
+        \includegraphics[width=1\linewidth]{Nester.png}
         \caption{Einfluss Anzahl der Nester auf das Ergebnis}
         \label{fig:nests}
       \end{figure}
@@ -445,9 +449,9 @@
       Der Einfluss auf die Laufzeit ist linear und dementsprechend auch mit hohen Zahlen vertretbar.
 
 
-      \begin{figure}[H]
+      \begin{figure}[]
         \centering
-        \includegraphics[width=0.8\linewidth]{Generation2.png}
+        \includegraphics[width=1\linewidth]{Generation2.png}
         \caption{Einfluss Anzahl der Generationen auf das Ergebnis}
         \label{fig:generation}
       \end{figure}
@@ -467,7 +471,7 @@
 
 
 
-      \begin{table}[H]
+      \begin{table}[b]
         \label{table:TSP}
         \centering
         \begin{tabular}{|l|ll|l|l|}
@@ -494,7 +498,7 @@
       TSP's noch sehr gut. Nur die Berechnung der Fitness bremst hier den Algorithmus ein wenig aus. 
       
 
-      \begin{table}[h]
+      \begin{table}[]
         \label{table:SOP}
         \centering
         \begin{tabular}{|l|ll|l|l|}
