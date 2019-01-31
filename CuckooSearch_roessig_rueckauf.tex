@@ -38,8 +38,8 @@
   \begin{abstract}
     In dieser Arbeit wurde der metaheuristischen Algorithmus Cuckoo Search (CS) implementiert, um damit zwei Optimierungsproblem zu lösen. 
     Die grundlegende Idee des Algorithmus ist abgeleitet von dem Brutparasitismus einiger Kuckuck-Arten. Das Bewegungsmuster des Kuckucks 
-    wird in dem Algorithmus durch den Levy Flight erzeugt. Dieser erzeugt ein Bewegungsmuster wie es bei einigen Vögeln und Insekten 
-    beobachtet wurde.  Es wurden die beiden NP-harten Probleme, des Travelling-Salesmans (TSP) und des Sequenc-Ordering (SOP) betrachtet 
+    wird in dem Algorithmus durch den Levy Flight erzeugt. Dieser versucht das Verhalten von Insekten und einigen Vögel zu imitieren.
+    Es wurden die beiden NP-harten Probleme, des Travelling-Salesmans (TSP) und des Sequenc-Ordering (SOP) betrachtet 
     und mit dem Algorihtmus gelöst. Da die Arbeit im Kontext eines Projektes erscheint, in dem mehrere metaheuristische Algorithmen verglichen 
     wurden, sind zum Schluss nur die Benchmarks und Ergebnisse des hier angewandten Algorithmus gelistet.
   \end{abstract}
@@ -49,7 +49,7 @@
   \end{IEEEkeywords}
 
   \section{Einleitung}
-    Viele Optimierungsprobleme sind NP-hart und damit existiert kein Algorithmus, der dieses Problem effizient lösen kann. Für solche 
+    Viele Optimierungsprobleme sind NP-hart weshalb die Existenz von effizienten Algorithmen, die diese Problem lösen, fraglich ist. Für solche 
     Probleme können Metaheuristiken zur näherungsweisen Lösung eingesetzt werden. Metaheuristiken definieren dabei eine abstrakte Folge 
     von Schritten, die auf beliebige Problemstellungen angewandt werden können. Die einzelnen Schritte müssen allerdings wieder 
     problemspezifisch implementiert werden. Erfolg und Laufzeit hängen von der Definition und Implementierung dieser Schritte ab. 
