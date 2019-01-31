@@ -449,16 +449,21 @@
       \end{itemize}
 
     \subsection{Ergebnisse}
+      Im folgenden werden SOP sowie TSP Probleme anhand von Datensätzen vom (xy-Uni.blabla) getestet. Dabei werden die Parameter
+      aus den vorherigen Abschnitt genutzt. 
+
+
       \begin{table}[h]
         \label{TSP}
         \centering
         \begin{tabular}{|l|ll|l|l|}
         \hline
-            Datensatz & \multicolumn{1}{l|}{Start} & End  & Best & Abweichung \\ \hline
-            berlin52.tsp  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-            ch130.tsp  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-            a280.tsp  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-            d1291.tsp  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
+            Datensatz & \multicolumn{1}{l|}{Start} & End  & Best & $\sim$Abweichung \\ \hline
+            berlin52.tsp  & \multicolumn{1}{l|}{26174} & 7949 & 7542 & 0,05       \\ \hline
+            ch130.tsp  & \multicolumn{1}{l|}{42378} & 6683 & 6110 & 0,09       \\ \hline
+            a280.tsp  & \multicolumn{1}{l|}{31874} & 2974 & 2579 & 0,15       \\ \hline
+            d493.tsp  & \multicolumn{1}{l|}{430752} & 43334 & 35003 & 0,23       \\ \hline
+            d1291.tsp  & \multicolumn{1}{l|}{1682530} & 222502 & 50801 & 3,38       \\ \hline
         \end{tabular}
         \caption[]{Ergebnisse TSP}
       \end{table}
@@ -471,11 +476,11 @@
         \begin{tabular}{|l|ll|l|l|}
         \hline
             Datensatz & \multicolumn{1}{l|}{Start} & End  & Best & Abweichung \\ \hline
-            br17.10  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-            ESC25  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-            ESC63  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-            rgb174a  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
-            rgb358a  & \multicolumn{1}{l|}{31757} & 2920 & 2670 & 0,08       \\ \hline
+            br17.10  & \multicolumn{1}{l|}{119} & 55 & 55 & 0,00       \\ \hline
+            ESC25  & \multicolumn{1}{l|}{9477} & 2881 & 1681 & 0,71       \\ \hline
+            ESC63  & \multicolumn{1}{l|}{228} & 96 & 62 & 0,59       \\ \hline
+            rgb174a  & \multicolumn{1}{l|}{2940} & 2342 & 2053 & 0,14       \\ \hline
+            rgb358a  & \multicolumn{1}{l|}{6626} & 4292 & [2518, 2758] & [0,7 - 0,54]       \\ \hline
         \end{tabular}
         \caption[]{Ergebnisse SOP}
       \end{table}
