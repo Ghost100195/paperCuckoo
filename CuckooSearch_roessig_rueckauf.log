@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.1.19)  31 JAN 2019 21:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.1.19)  31 JAN 2019 22:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -408,6 +408,30 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+) (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen138
+\captionmargin@=\dimen139
+\captionwidth=\dimen140
+\caption@tempdima=\dimen141
+\caption@indent=\dimen142
+\caption@parindent=\dimen143
+\caption@hangindent=\dimen144
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->\ifx \@captype \@IEEEtablestring \footnotesize \bgroup \par \centering \@IEEEtabletopskipstrut {\normalfont \footnotesize #1}\\{\normalfont \footnotesize \scshape #2}\par \addvspace {0.5\baselineskip }\egroup \@IEEEtablecaptionsepspace \else \@IEEEfigurecaptionsepspace \setbox \@tempboxa \hbox {\normalfont \footnotesize {#1.}\nobreakspace \nobreakspace #2}\ifdim \wd \@tempboxa >\hsize \setbox \@tempboxa \hbox {\normalfont \footnotesize {#1.}\nobreakspace \nobreakspace }\parbox [t]{\hsize }{\normalfont \footnotesize \noindent \unhbox \@tempboxa #2}\else \ifCLASSOPTIONconference \hbox to\hsize {\normalfont \footnotesize \hfil \box \@tempboxa \hfil }\else \hbox to\hsize {\normalfont \footnotesize \box \@tempboxa \hfil }\fi \fi \fi .
+\c@caption@flags=\count118
+\c@ContinuedFloat=\count119
+Package caption Info: float package is loaded.
 ) (/home/ubuntu/CuckooPaper/paperCuckoo/CuckooSearch_roessig_rueckauf.aux
 
 LaTeX Warning: Label `eq' multiply defined.
@@ -421,38 +445,38 @@ LaTeX Warning: Label `eq' multiply defined.
 )
 \openout1 = `CuckooSearch_roessig_rueckauf.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 18.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    ... okay on input line 18.
 
 -- Lines per column: 56 (exact).
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count118
-\scratchdimen=\dimen138
+\scratchcounter=\count120
+\scratchdimen=\dimen145
 \scratchbox=\box33
-\nofMPsegments=\count119
-\nofMParguments=\count120
+\nofMPsegments=\count121
+\nofMParguments=\count122
 \everyMPshowfont=\toks26
-\MPscratchCnt=\count121
-\MPscratchDim=\dimen139
-\MPnumerator=\count122
-\makeMPintoPDFobject=\count123
+\MPscratchCnt=\count123
+\MPscratchDim=\dimen146
+\MPnumerator=\count124
+\makeMPintoPDFobject=\count125
 \everyMPtoPDFconversion=\toks27
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -490,12 +514,14 @@ Package grfext Info: Graphics extension search list:
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 36.
-LaTeX Font Info:    Try loading font information for U+msa on input line 36.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 38.
+LaTeX Font Info:    Try loading font information for U+msa on input line 38.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 36.
+LaTeX Font Info:    Try loading font information for U+msb on input line 38.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -505,7 +531,7 @@ Underfull \vbox (badness 7740) has occurred while \output is active []
 
 
 ]
-Underfull \hbox (badness 2111) in paragraph at lines 187--192
+Underfull \hbox (badness 2111) in paragraph at lines 189--194
 []\OT1/ptm/m/n/10 Um ei-ne neue Ge-ne-ra-ti-on von L[]osungen von ei-nem
  []
 
@@ -513,21 +539,21 @@ Underfull \hbox (badness 2111) in paragraph at lines 187--192
 <LevyFlight.png, id=20, 360.6273pt x 348.8232pt>
 File: LevyFlight.png Graphic file (type png)
 <use LevyFlight.png>
-Package pdftex.def Info: LevyFlight.png  used on input line 195.
-(pdftex.def)             Requested size: 252.0pt x 243.74876pt.
+Package pdftex.def Info: LevyFlight.png  used on input line 197.
+(pdftex.def)             Requested size: 226.79846pt x 219.37122pt.
  [3 </home/ubuntu/CuckooPaper/paperCuckoo/LevyFlight.png>]
 <2-opt-move.png, id=29, 199.2243pt x 109.48904pt>
 File: 2-opt-move.png Graphic file (type png)
 <use 2-opt-move.png>
-Package pdftex.def Info: 2-opt-move.png  used on input line 283.
-(pdftex.def)             Requested size: 252.0pt x 138.49654pt.
+Package pdftex.def Info: 2-opt-move.png  used on input line 285.
+(pdftex.def)             Requested size: 226.79846pt x 124.64505pt.
 <double-Bridge.png, id=30, 199.10385pt x 99.85304pt>
 File: double-Bridge.png Graphic file (type png)
 <use double-Bridge.png>
-Package pdftex.def Info: double-Bridge.png  used on input line 290.
-(pdftex.def)             Requested size: 252.0pt x 126.38686pt.
+Package pdftex.def Info: double-Bridge.png  used on input line 292.
+(pdftex.def)             Requested size: 226.79846pt x 113.7468pt.
 
-Underfull \hbox (badness 3895) in paragraph at lines 296--302
+Underfull \hbox (badness 3895) in paragraph at lines 298--304
 []\OT1/ptm/m/n/10 Um den Such-raum zu durch-su-chen, ha-ben wir die
  []
 
@@ -535,7 +561,7 @@ Underfull \hbox (badness 3895) in paragraph at lines 296--302
 <Entdeckungswahrscheinlichkeit.png, id=34, 1238.226pt x 851.8224pt>
 File: Entdeckungswahrscheinlichkeit.png Graphic file (type png)
 <use Entdeckungswahrscheinlichkeit.png>
-Package pdftex.def Info: Entdeckungswahrscheinlichkeit.png  used on input line 426.
+Package pdftex.def Info: Entdeckungswahrscheinlichkeit.png  used on input line 429.
 (pdftex.def)             Requested size: 252.0pt x 173.35094pt.
 
 
@@ -544,21 +570,21 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <Nester.png, id=35, 1238.7078pt x 852.3042pt>
 File: Nester.png Graphic file (type png)
 <use Nester.png>
-Package pdftex.def Info: Nester.png  used on input line 441.
+Package pdftex.def Info: Nester.png  used on input line 444.
 (pdftex.def)             Requested size: 252.0pt x 173.38396pt.
 [5]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 453.
+               Default added (so using `tbp') on input line 456.
 
 <Generation2.png, id=39, 1238.7078pt x 852.3042pt>
 File: Generation2.png Graphic file (type png)
 <use Generation2.png>
-Package pdftex.def Info: Generation2.png  used on input line 455.
+Package pdftex.def Info: Generation2.png  used on input line 458.
 (pdftex.def)             Requested size: 252.0pt x 173.38396pt.
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 501.
+               Default added (so using `tbp') on input line 505.
 
 [6 </home/ubuntu/CuckooPaper/paperCuckoo/Entdeckungswahrscheinlichkeit.png
 
@@ -570,7 +596,17 @@ pdfTeX warning: pdflatex (file /home/ubuntu/CuckooPaper/paperCuckoo/Nester.png):
 
 pdfTeX warning: pdflatex (file /home/ubuntu/CuckooPaper/paperCuckoo/Generation2.png): large interlaced PNG might cause out of memory (use non-interlaced PNG to fix this)
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 563--564
+Underfull \hbox (badness 1389) in paragraph at lines 549--552
+[]\OT1/ptm/m/n/10 Generell eig-net sich der CS da-her in Be-rei-chen, wo
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 549--552
+\OT1/ptm/m/n/10 tes Er-geb-nis ge-fun-den wer-den muss. F[]ur per-fek-te Re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 567--568
 []\OT1/ptm/m/n/8 https://www.iwr.uni-heidelberg.de/groups/comopt/software/TSPLIB95/
  []
 
@@ -591,18 +627,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5544 strings out of 492615
- 80428 string characters out of 6131390
- 169969 words of memory out of 5000000
- 9349 multiletter control sequences out of 15000+600000
- 45057 words of font info for 99 fonts, out of 8000000 for 9000
+ 6633 strings out of 492615
+ 100218 string characters out of 6131390
+ 190416 words of memory out of 5000000
+ 10433 multiletter control sequences out of 15000+600000
+ 43333 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,35p,368b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/ubuntu/CuckooPaper/paperCuckoo/CuckooSearch_roessig_rueckauf.pdf (7 pages, 806830 bytes).
+ 41i,11n,39p,375b,370s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on /home/ubuntu/CuckooPaper/paperCuckoo/CuckooSearch_roessig_rueckauf.pdf (7 pages, 791736 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
+ 100 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
