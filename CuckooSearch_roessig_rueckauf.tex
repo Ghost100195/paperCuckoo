@@ -40,8 +40,13 @@
   \begin{abstract}
     In dieser Arbeit wurde der metaheuristischen Algorithmus Cuckoo Search (CS) implementiert, um damit zwei Optimierungsproblem zu lösen. 
     Die grundlegende Idee des Algorithmus ist abgeleitet von dem Brutparasitismus einiger Kuckuck-Arten. Das Bewegungsmuster des Kuckucks 
+<<<<<<< HEAD
     wird in dem Algorithmus durch den Lévy Flight erzeugt. Dieser erzeugt ein Bewegungsmuster wie es bei einigen Vögeln und Insekten 
     beobachtet wurde. Es wurden die beiden NP-harten Probleme des Travelling-Salesmans (TSP) und des Sequenc-Ordering (SOP) betrachtet 
+=======
+    wird in dem Algorithmus durch den Levy Flight erzeugt. Dieser versucht das Verhalten von Insekten und einigen Vögel zu imitieren.
+    Es wurden die beiden NP-harten Probleme, des Travelling-Salesmans (TSP) und des Sequenc-Ordering (SOP) betrachtet 
+>>>>>>> 1c77d08c0737ea0f650e423d671d079a85dfebc7
     und mit dem Algorihtmus gelöst. Da die Arbeit im Kontext eines Projektes erscheint, in dem mehrere metaheuristische Algorithmen verglichen 
     wurden, sind zum Schluss nur die Benchmarks und Ergebnisse des hier angewandten Algorithmus gelistet.
   \end{abstract}
@@ -51,7 +56,7 @@
   \end{IEEEkeywords}
 
   \section{Einleitung}
-    Viele Optimierungsprobleme sind NP-hart und damit existiert kein Algorithmus, der dieses Problem effizient lösen kann. Für solche 
+    Viele Optimierungsprobleme sind NP-hart weshalb die Existenz von effizienten Algorithmen, die diese Problem lösen, fraglich ist. Für solche 
     Probleme können Metaheuristiken zur näherungsweisen Lösung eingesetzt werden. Metaheuristiken definieren dabei eine abstrakte Folge 
     von Schritten, die auf beliebige Problemstellungen angewandt werden können. Die einzelnen Schritte müssen allerdings wieder 
     problemspezifisch implementiert werden. Erfolg und Laufzeit hängen von der Definition und Implementierung dieser Schritte ab. 
@@ -92,7 +97,7 @@
       In den Bedingungen lassen sich die festen Start- und Endknoten definieren. 
       Die Bedingungsmenge des Startknotens \eqref{Bedingungsmenge P0} ist leer, 
       da dieser ganz vorne stehen muss. Im Gegensatz enthält die Bedingungsmenge des 
-      Endknotens \eqref{Bedingungsmenge Pn} alle anderen Knoten, da diese vor ihm sein müssen. 
+      Endknotens \eqref{Bedingungsmenge Pn} alle anderen Knoten, da diese vor ihm besucht werden müssen. 
     
       
       \begin{equation}\label{Bedingungsmenge P0}
@@ -131,7 +136,7 @@
 
       Gerade in dem interspezifischen Brutparasitismus haben sich verschiedene Anpassungen entwickelt, um das Risiko der Entdeckung 
       zu minimieren. Bei einigen Arten erfolgt die Eireifung simultan zu der des Wirtstieres. Die Eier des Kuckucks besitzen meist 
-      eine kürzere Brutzeit, sodass der Kuckuck als erster schlüpft und er dann die anderen Eier aus dem Nest schmeißt. Die meisten 
+      eine kürzere Brutzeit, sodass diese als erstes schlüpfen um dann die anderen Eier aus dem Nest zu schmeißen. Die meisten 
       Kuckucksküken wachsen in den ersten Tagen schneller als die Küken der Wirtseltern und haben dadurch einen entscheidenden 
       Fütterungs- und Wachstumsvorteil. Zudem erfolgt die Eiablage in beschleunigter Form, d.h. das Ei wird im Eileiter aufbewahrt 
       und kann dann im Gelegenheitsfall schnell gelegt werden. Es wurden in der Natur Eiablagezeiten von nur 10 Sekunden gemessen. 
@@ -309,38 +314,39 @@
 
     \subsection{Cuckoo Search für das Sequential Ordering Problem}
       Der größte Unterschied für den Cuckoo-Algorithmus vom TSP zum SOP ist, dass der Algorithmus Lösungen 
-      produzieren kann die nicht mehr korrekt (engl. valid) sind. Für das TSP wurden nur korrekte Lösungen erstellt, wenn die 
-      Operatoren auf korrekten Reihenfolgen arbeiten. Daher ist es ausreichend dort, darauf zu achten, dass die Initialisierung 
-      nur korrekt Reihenfolge erbrachte. Anschließend konnte durch die Operaten die Double-Bridge-Move 
-      \ref{fig:double-bridge-move} und 2-opt-move \ref{fig:2-opt-move} keine inkorrekten Ergebnisse erzeugt werden.
-      Mit SOP reicht es nicht mehr nur die Initialisierung korrekt zu gestalten, da auch die 
-      beiden Operationen zu inkorrekt Ergebnissen führen können.
-      Im Folgenden werden drei Varianten vorgestellt, die den Umgang mit inkorrekten Reihenfolgen auf unterschiedliche
-      Art lösen. Anschließend wird die Implementierung einer dieser Varianten für den CS gezeigt. 
+      produzieren kann die nicht mehr valide sind. Für das TSP wurden nur gültige Lösungen erstellt, wenn die 
+      Operatoren auf gültigen Reihenfolgen arbeiten. Daher ist es dort ausreichend, darauf zu achten, dass die Initialisierung 
+      nur gültige Reihenfolge erbrachte. Anschließend konnte durch die Operaten Double-Bridge-move 
+      \ref{fig:double-bridge-move} und 2-opt-move \ref{fig:2-opt-move} keine ungültigen Ergebnisse erzeugt werden.
+      Mit SOP reicht es nicht mehr nur die Initialisierung gültig zu gestalten, da auch die 
+      beiden Operationen zu ungültigen Ergebnissen führen können.
+      Im folgenden werden drei Varianten vorgestellt, die den Umgang mit ungültigen Reihenfolge auf unterschiedliche
+      Art lösen. Anschließend wird die Implementierung einer dieser Varianten für den Cuckoo's Algorithmus gezeigt. 
 
     \subsection{Handicap}
-      Beim Handicap werden invalide 
+      Beim Handicap werden ungültige 
       Ergebnisse in der Population beibehalten. Ihre Fitness hingegen wird mittels eines Handicaps 
-      verschlechtert. Das Abschwächen ist die ''Bestrafung'' dafür das es sich bei der 
-      Lösung um ein invalides Ergebnis handelt. Der Vorteil dieser Variante ist, dass auch eine solche 
-      Lösung noch gute Bestandteile beinhalten kann, die vom Schwarm noch sinnvoll übernommen werden können. 
+      verschlechtert. Das Abschwächen ist die ''Bestrafung'' dafür, dass es sich bei der 
+      Lösung um ein ungültiges Ergebnis handelt. Der Vorteil dieser Variante ist, dass auch eine solche 
+      Lösung noch gute Bestandteile beinhalten, die vom Schwarm noch sinnvoll übernommen werden können. 
       Besitzen diese aber keine guten Bestandteile, verschlechtern sie sich durch das Handicap stark, sodass diese aus der
-      Population ausscheiden. Nachteil an diesem Ansatz ist, dass das Balancing des Handicaps 
-      enorm schwer ist. Ist das Handicap viel zu stark, werden invalide Lösung nicht wirklich 
+      Population ausscheiden. Nachteil des Ansatzes ist, dass das Balancing des Handicaps 
+      enorm schwer ist. Ist das Handicap viel zu stark, werden ungültige Lösung nicht wirklich 
       betrachten und könnten auch direkt gelöscht werden. Ist wiederrum das Handicap zu schwach, 
-      kann es passieren, dass die beste Lösung des Algorithmus ein invalides Ergebnis ist, was 
+      kann es passieren, dass die beste Lösung des Algorithmus ein ungültiges Ergebnis ist, was 
       wiederrum unerwünscht ist. Erst recht ist das Handicap im Falle von SOP/TSP schwer 
       einzubringen, da die Fitness hierbei die Länge der Pfade ist. Die Problemstellung äußert 
-      sich also direkt in der Fitness was wiederrum bedeutet, dass eine Fitness von 100 in dem einem Fall
-      gut und in einem anderen Fall schlecht ist. Das Handicap müsste daher variable gestaltet werden. Problem hierbei ist, dass das optimale Ergebnis zu Beginn nicht 
+      sich also direkt in der Fitness, was wiederrum bedeutet, dass eine Fitness von 100 in dem einem Fall
+      gut und in einem anderen Fall schlecht ist. Das Handicap müsste daher variable gestaltet werden. Problem hierbei ist, 
+      dass das optimale Ergebnis zu Beginn nicht 
       bekannt ist, wodurch ein relatives Handicap schwer umzusetzen ist. Des Weiteren besitzt der CS
-      nicht das klassische Verhalten eines Schwarms, da die einzelnen Individuen sich nicht stark aneinander Orientieren.
+      nicht das klassische Verhalten eines Schwarms, da sich die einzelnen Individuen nicht stark aneinander orientieren.
       Aufgrund des fehlenden Schwarm-Verhaltens, dem Balancing und dem Problem des schwer an zu passenden Handicaps, 
       haben wir uns gegen diese Methode entschieden.
 
     \subsection{Operatoren} 
       Eine weitere Variante ist es, die Operatoren \textit{Double-Bridge-move} und \textit{2-opt-move} soweit anzupassen, dass diese
-      nur noch korrekte Ergebnisse erzeugen. Die beiden Operatoren des CS besitzen eine einfache 
+      nur noch gültige Ergebnisse erzeugen. Die beiden Operatoren des CS besitzen eine einfache 
       Struktur ohne weitere Metriken, wodurch eine solche Veränderung schwer ist. 
       Des Weiteren würde eine solche Anpassung die Komplexität der Operatoren erhöhen, wodurch die Grundidee eines 
       einfach zu verstehenden Optimierungsalgorithmus verloren gehen würde. 
@@ -352,7 +358,7 @@
       versucht wird den gültigen Wissensgehalt, innerhalb der Lösung, nicht zu verändern. Dies bedeutet, 
       dass gerade so viel geändert wird, dass die Reihenfolge wieder korrekt ist. Veränderungen darüber hinaus, 
       könnte dazu führen, dass kleiner Veränderungen durch die Operanten sonst verloren gehen würden.
-      Des Weiteren ist der \textit{Repair-Schritt} ein unnatürlicher Eingriff in die natürliche Lösungsfindung des CS, 
+      Zusätzlich ist der \textit{Repair-Schritt} als ein unnatürlicher Eingriff in die natürliche Lösungsfindung des CS zu sehen, 
       weswegen dieser möglichst klein ausfallen sollte.
       Der \textit{Rapair-Schritt} schien uns für den CS am passendsten, da dieser die Komplexität des Algorithmus nicht erhöht, aber 
       gleichzeitig keine weiteren Probleme mit sich bringt. 
@@ -360,14 +366,14 @@
 
 
     \subsection{Implementierung} \label{Implementierung Repair}
-      Im CS, muss an drei Orten festgestellt werden, dass nur korrekte Reihenfolgen erstellt werden. 
-      Die einzigen Punkte im Algorithmus wo inkorrekte Ergebnisse auftreten können, ist bei der \textit{Initialisierung} 
+      Im CS, muss an drei Orten festgestellt werden, dass nur gültige Reihenfolgen erstellt werden. 
+      Die einzigen Punkte im Algorithmus, wo ungültige Ergebnisse auftreten können, ist bei der \textit{Initialisierung} 
       und nach den beiden Operatoren. Da die \textit{Initialisierung} TSP Reihenfolgen erstellt, werden diese im Nachhinein so 
-      transformiert, dass sie dem SOP entsprechen. Der \textit{2-Opt-move} kann zu invaliden Reihenfolgen führen, muss dies aber 
-      nicht. Daher muss nach jeder Ausführung geprüft werden, ob es sich noch um eine valide Reihenfolge handelt. 
+      transformiert, dass sie dem SOP entsprechen. Der \textit{2-Opt-move} kann zu ungültigen Reihenfolgen führen, muss dies aber 
+      nicht. Daher muss nach jeder Ausführung geprüft werden, ob es sich noch um eine gültige Reihenfolge handelt. 
       Ausnahme ist hierbei, dass wenn mehrere \textit{2-Opt-moves} hintereinander ausgeführt werden, nur das letzte Ergebnis 
-      wieder zu einem validen transformiert wird. Dies folgt wieder dem Prinzip, dass nur möglichst wenig verändert/eingegriffen 
-      werden soll. Der \textit{Double-Bridge-move} führt immer zu einer invaliden Reihenfolge, dies folgt aus der Definition der Methode. 
+      wieder zu einem gültigen transformiert wird. Dies folgt wieder dem Prinzip, dass nur möglichst wenig verändert/eingegriffen 
+      werden soll. Der \textit{Double-Bridge-move} führt immer zu einer ungültigen Reihenfolge, dies folgt aus der Definition der Methode. 
       Daher wird hier nach jeder Durchführung die Reihenfolge wieder repariert. Der Ablauf des \textit{Repair-Schrittes} ist immer 
       der gleiche und wird im Pseudocode \ref{Alg.1.Repair} dargestellt.
 
@@ -388,14 +394,14 @@
           \EndWhile
           \State Erhöhe $i+1$, falls innere Schleife nicht abgebrochen
         \EndWhile
-        \State Valide Reihenfolge $R$
+        \State gültige Reihenfolge $R$
         
         \end{algorithmic}
         \end{algorithm}
 
       Die Laufzeit vom \textit{Repair-Schritt} beträgt dabei O($n^2$), wobei $n$ die Länge der Reihenfolge $R$ ist. Dies ergibt sich aus der Tatsache, dass
       jede $swap$-Operation wieder zu einer neuen Verletzung der Bedingungen führen kann, weswegen ab Stelle $i$ erneut begonnen wird.
-      Um also alle möglichen Verletzungen der Bedingungen zu finden, muss jeder Knoten $n_1$ mit jedem nachfolgendem Knoten $n_2$ geprüft werden. 
+      Um also alle möglichen Verletzungen der Bedingungen zu finden, muss jeder Knoten $n_x$ mit jedem nachfolgendem Knoten $n_y$ geprüft werden. 
       Wie oben beschrieben, ist die Laufzeit abhängig von der Länge der Reihenfolge und dadurch direkt auch von der Größe des SOP's. 
       Durch diese Abhängigkeit, die zuvor nicht bestand, wird die Auswertungen von großen SOP's erheblich langsamer.
   
@@ -403,8 +409,8 @@
 
   \section{Evaluierung}
     In diesem Abschnitt gehen wir auf die Parameter des CS ein und prüfen ihren Einfluss auf die Qualität des Ergebnisses.
-    Dabei untersuchen wir verschiedene Anzahlen an Nester und Iterationen sowie unterschiedliche Wahrscheinlichkeiten $P_a$ dafür, dass ein 
-    Ei entdeckt wird und aus dem Nest geworfen wird. Die Ergebnisse werden anschließend genutzt um den CS auf mehreren 
+    Dabei untersuchen wir verschiedene Anzahlen an Nester und Iterationen sowie unterschiedliche Wahrscheinlichkeiten $P_a$ dafür, dass ein Ei entdeckt 
+    und aus dem Nest geworfen wird. Die Ergebnisse werden anschließend genutzt um den CS auf mehreren 
     Datensätzen zu testen.
 
 
@@ -421,7 +427,7 @@
 
       Für ein gutes Anpassungsverhalten sollte $P_a$ daher nicht zu niedrig gesetzt werden, aber auch nicht zu hoch, damit noch eine Anpassung stattfindet. 
       Die weiteren Tests werden daher mit einer $P_a = 0.15$ durchgeführt.
-      Die Veränderung des $P_a$ Faktor hat keinerlei Einfluss auf die Laufzeit des Algorithmuses.
+      Die Veränderung des $P_a$ Faktors hat keinerlei Einfluss auf die Laufzeit des Algorithmuses.
 
       \begin{figure}[h]
         \centering
@@ -432,8 +438,8 @@
       
 
       Als nächsten wurde der Einfluss der Nester auf das Ergebnis geprüft. Dafür wurden acht Durchläufe mit steigender Anzahl an Nestern von 25 bis 200 
-      gemacht. Hierbei wurden eine $P_a$ von 0.15 und 1000 Generationen genutzt. Die Ergebnisse (Abb. \ref{fig:nests}) zeigen, dass mit steigerender Anzahl 
-      der Nester wieder ein schnelleres Anpassungsverhalten vorliegt, welches aber wiederrum mit ansteigender Anzahl an Generationen verschwindet. Damit hat die Anzahl der Nester auch wieder
+      gemacht. Hierbei wurden eine $P_a$ von 0.15 und 1000 Generationen genutzt. Das Ergebnis (Abb. \ref{fig:nests}) zeigt, dass mit steigender Anzahl der Nester wieder
+      ein schnelleres Anpassungsverhalten vorliegt, dass aber wiederrum mit ansteigender Anzahl an Generationen verschwindet. Damit hat die Anzahl der Nester auch wieder
       nur einen geringen Einfluss auf die Endqualität des Ergebnisses. Daher setzen wir für weitere Test die Anzahl an Nestern auf 50 fest.
       Durch Erhöhung der Nester erhöht sich die Laufzeit proportional linear.
  
@@ -445,9 +451,9 @@
         \label{fig:nests}
       \end{figure}
 
-      In Abbildung \ref{fig:generation} ist der Einfluss des Generationen Parameters zu erkennen. Für den Durchlauf wurden 50 Nester und ein $P_a$ von 0.15 genutzt. 
-      Zu erkennen ist, dass der Algorithmus bis 3400 Iterationen sich langsam immer weiter anpasst. Ab 3400 nimmt diese Kurve immer weiter ab, bis so gut wie keiner Verbesserung
-      mehr stattfindet. Diese Schranke lässt sich mittels Anpassung der Anzahl der Nester und des Werte $P_a$ weiter nach links, und somit $<3400$, oder rechts $>3400$ verschieben.
+      In Abbildung \ref{fig:generation} ist der Einfluss des Generation Parameters zu erkennen. Für den Durchlauf wurden 50 Nester und eine $P_a$ von 0.15 genutzt. 
+      Zu erkennen ist, dass der Algorithmus bis 3500 Iterationen sich langsam immer weiter anpasst. Ab 3500 nimmt diese Kurve immer weiter ab, bis so gut wie keine Verbesserung
+      mehr stattfindet. Diese Schranke lässt sich mittels Anpassung der Anzahl der Nester und des Werte $P_a$ weiter nach links, und somit $<3500$, oder rechts $>3500$ verschieben.
       Generell lässt sich daher sagen, dass mit den von uns gewählten Parametern nur noch geringe Verbesserungen über 4000 Iterationen eintreten.
       Der Einfluss auf die Laufzeit ist linear und dementsprechend auch mit hohen Zahlen vertretbar.
 
@@ -467,8 +473,7 @@
       \end{itemize}
 
     \subsection{Ergebnisse}
-      Im folgendem werden das SOP sowie das TSP anhand einiger Beispiele aus der Datensatzsammlung der Uni-Heidelberg
-      \cite{b12} getestet.
+      Im folgendem werden das SOP sowie das TSP anhand einiger Beispiele aus der Datensatzsammlung der Uni-Heidelberg \cite{b12} getestet.
       Dabei werden die Parameter aus dem vorherigen Abschnitt genutzt. 
       Die Ergebnisse sind der Mittelwert aus 10 Durchläufe auf dem jeweiligen Datensatz.
 
@@ -493,12 +498,13 @@
         \caption{Ergebnisse TSP}
       \end{table}
 
-      Für kleine TSP erbringt der CS gute Ergebnisse in linearer Zeit. Hingegen in der Tabelle auch zu erkennen, dass 
-      mit wachsender Anzahl an Knoten, das Ergebnis immer schlechter wird. Für den Datensatz \textit{d1291} beträgt der Abstand zwischen 
-      dem besten und den vom CS erzeugten Ergebnis $222502 - 50801 = 171701$. Das bedeutet, dass der CS mehr als $3x$ vom besten Ergebnis 
-      abweicht, was enorm ist. Bei kleineren TSP's performt der Algorithmus hingegen gut. 
+      Der CS für kleine TSP erbringt gute Ergebnisse in linearer Zeit. Hingegen in der Tabelle auch zu erkennen, dass 
+      mit wachsender Anzahl an Knoten, das Ergebnis immer schlechter wird. Für den Datensatz \textit{d1291} beträgt der Abstand zwischen dem besten 
+      und den vom CS erzeugten Ergebnis 
+      $222502 - 50801 = 171701$. Das bedeutet, dass der CS mehr als $3x$ vom besten Ergebnis abweicht, was enorm ist. 
+      Wiederrum performt der Algorithmus bei kleineren TSP's gut. 
       Durch die Unabhängigkeit des Algorithmuses gegenüber der Anzahl an Knoten in einem TSP, ist die Laufzeit auch bei großen
-      TSP's noch sehr gut. Nur die Berechnung der Fitness bremst hier den Algorithmus ein wenig aus. 
+      TSP's noch sehr gut. Nur die Berechnung der Fitness bremst hier den Algorithmus aus. 
       
 
       \begin{table}[]
@@ -510,21 +516,13 @@
             ESC07  & \multicolumn{1}{l|}{3200} & 2125 & 2125  & 0,00       \\ \hline
             ESC11  & \multicolumn{1}{l|}{3524} & 2075 & 2075 & 0,00       \\ \hline
             ESC12  & \multicolumn{1}{l|}{2352} & 1675 & 1675 & 0,00       \\ \hline
-
             br17.10  & \multicolumn{1}{l|}{119} & 55 & 55 & 0,00       \\ \hline
-
-
-            ESC25  & \multicolumn{1}{l|}{9477} & 2881 & 1681 & 0,71       \\ \hline
-            
+            ESC25  & \multicolumn{1}{l|}{9477} & 2881 & 1681 & 0,71       \\ \hline   
             ESC47  & \multicolumn{1}{l|}{17911} & 3513 & 1288 &  1,72      \\ \hline
-
             ESC63  & \multicolumn{1}{l|}{228} & 96 & 62 & 0,59       \\ \hline
-
             ESC78 & \multicolumn{1}{l|}{30728} & 19949 & 18230 &  0,09     \\ \hline
             ft70.1 & \multicolumn{1}{l|}{67388} & 48212 & 39313 &   0,22     \\ \hline
-
             rgb109a  & \multicolumn{1}{l|}{1889} & 1262 & 1038 &  0,21      \\ \hline
-
             rgb174a  & \multicolumn{1}{l|}{2940} & 2342 & 2053 & 0,14       \\ \hline
             rgb358a  & \multicolumn{1}{l|}{6626} & 4292 & [2518, 2758] & [0,7 - 0,54]       \\ \hline
         \end{tabular}
@@ -532,11 +530,11 @@
       \end{table}
 
       Im Gegensatz zum TSP, lässt sich beim SOP die Güte des Ergebnisses nicht anhand der Komplexität des Problemes ablesen. 
-      Die Komplexität des SOP liegt nicht nur innerhalb des Anzahl an Knoten, sondern zudem in der Kette der Bedingungen. Dies lässt sich gut 
-      in der Tabelle erkennen, da die Ergebnisse nicht gleichmäßig schlechter werden mit zunehmender Anzahl an Knoten. 
-      Die Güte des Ergebnisses scheint unabhängig von der Anzahl an Knoten zu sein. 
+      Die Komplexität eines SOP's liegt nicht nur innerhalb der Anzahl an Knoten sondern in der Bedingungsmenge. Dies lässt sich gut 
+      in der Tabelle erkennen, da die Ergebnisse mit zunehmender Anzahl an Knoten nicht gleichmäßig schlechter werden. 
+      Damit scheint die Güte des Ergebnisses unabhängig von der Anzahl an Knoten zu sein. 
       Da die Laufzeit durch den \textit{Repair-Schritt} quadratisch zunimmt und die Güte des Ergebnisses nicht 
-      eingeschätzt werden kann, eignet sich der CS nicht für das SOP.
+      eingeschätzt werden kann, eignet sich der Cuckoo's Algorithmus nicht gut für das SOP.
 
 
 
@@ -550,7 +548,7 @@
     Gleichzeitig ist die Stärke des Algorithmus aber auch seine Schwäche. Durch den Verzicht 
     auf komplexe Metriken, sind Anpassung und damit Einwirkungen auf den Ablauf des Algorithmus schwierig.
     Der Algorithmus lässt sich daher, wenn keine guten Ergebnisse erzielt werden, nur schwer auf das Problem weiter anpassen. 
-    Die fehlenden Metriken und damit die Einfachheit sorgen dafür, dass Umsetzungen, wie die SOP Bedingungen, sich nicht elegant in das 
+    Die fehlenden Metriken und damit verbunden die Einfachheit sorgen dafür, dass Erweiterungen wie das SOP mit seinen Bedingungen, sich nicht elegant in das 
     Verfahren einbauen lassen.
 
     Generell eignet sich der CS daher in Bereichen, wo schnell für kleinere Optimierungsproblem ein relativ 
